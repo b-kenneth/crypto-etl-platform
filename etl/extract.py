@@ -5,7 +5,7 @@ import pandas as pd
 from io import BytesIO
 from dotenv import load_dotenv
 
-from .logger_config import logger  # use configured logger
+from logger_config import logger  # use configured logger
 
 load_dotenv("../docker/.env")
 
@@ -46,3 +46,12 @@ class MinioExtractor:
         except Exception as e:
             logger.error(f"Error reading CSV {object_name}: {e}")
             return pd.DataFrame()
+
+
+if __name__ == "__main__":
+    extractor = MinioExtractor()
+    files = extractor.list_files()
+    for file_name in files:
+        df = extractor.read_csv(file_name)
+        print(f"Data preview for {file_name}:")
+        print(df.head())
