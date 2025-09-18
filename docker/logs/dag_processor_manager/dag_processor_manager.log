@@ -4819,3 +4819,10 @@ File Path                                                                       
 /home/airflow/.local/lib/python3.8/site-packages/airflow/example_dags/example_datasets.py                                                                  6           0  0.26s           2025-09-18T10:18:01
 ================================================================================
 [2025-09-18T10:18:15.691+0000] {manager.py:451} INFO - Exiting gracefully upon receiving signal 15
+[2025-09-18T12:03:40.099+0000] {manager.py:469} INFO - Processing files using up to 2 processes at a time 
+[2025-09-18T12:03:40.100+0000] {manager.py:470} INFO - Process each file at most once every 30 seconds
+[2025-09-18T12:03:40.101+0000] {manager.py:471} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-09-18T12:03:40.102+0000] {manager.py:738} INFO - Searching for files in /opt/airflow/dags
+[2025-09-18T12:03:40.139+0000] {manager.py:741} INFO - There are 48 files in /opt/airflow/dags
+[2025-09-18T12:03:47.701+0000] {manager.py:451} INFO - Exiting gracefully upon receiving signal 15
+[2025-09-18T12:03:47.723+0000] {manager.py:451} INFO - Exiting gracefully upon receiving signal 15
