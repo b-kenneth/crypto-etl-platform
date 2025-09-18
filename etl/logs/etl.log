@@ -112,3 +112,199 @@
 [2025-09-18 16:51:21,204] INFO - crypto_etl - Adding derived metrics...
 [2025-09-18 16:51:21,225] INFO - crypto_etl - Data transformation complete
 [2025-09-18 19:03:55,580] INFO - crypto_etl - Upserted 1 rows into processed_prices
+[2025-09-18 21:19:50,017] INFO - crypto_etl - Starting ETL pipeline
+[2025-09-18 21:19:50,021] INFO - crypto_etl - Listing files from bucket crypto-data with prefix ''
+[2025-09-18 21:19:50,131] INFO - crypto_etl - Found 24 CSV files
+[2025-09-18 21:19:50,132] INFO - crypto_etl - Processing file: crypto_data_20250917_12.csv
+[2025-09-18 21:19:50,132] INFO - crypto_etl - Reading CSV crypto_data_20250917_12.csv from bucket crypto-data
+[2025-09-18 21:19:50,155] INFO - crypto_etl - Read CSV crypto_data_20250917_12.csv with 6 rows
+[2025-09-18 21:19:50,157] INFO - crypto_etl - Starting data transformation...
+[2025-09-18 21:19:50,160] INFO - crypto_etl - Adding derived metrics...
+[2025-09-18 21:19:50,200] INFO - crypto_etl - Data transformation complete
+[2025-09-18 21:19:50,240] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-18 21:19:50,240] INFO - crypto_etl - Successfully processed crypto_data_20250917_12.csv
+[2025-09-18 21:19:50,244] INFO - crypto_etl - Processing file: crypto_data_20250917_13.csv
+[2025-09-18 21:19:50,244] INFO - crypto_etl - Reading CSV crypto_data_20250917_13.csv from bucket crypto-data
+[2025-09-18 21:19:50,255] INFO - crypto_etl - Read CSV crypto_data_20250917_13.csv with 6 rows
+[2025-09-18 21:19:50,256] INFO - crypto_etl - Starting data transformation...
+[2025-09-18 21:19:50,258] INFO - crypto_etl - Adding derived metrics...
+[2025-09-18 21:19:50,270] INFO - crypto_etl - Data transformation complete
+[2025-09-18 21:19:50,289] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-18 21:19:50,290] INFO - crypto_etl - Successfully processed crypto_data_20250917_13.csv
+[2025-09-18 21:19:50,290] INFO - crypto_etl - Processing file: crypto_data_20250917_14.csv
+[2025-09-18 21:19:50,292] INFO - crypto_etl - Reading CSV crypto_data_20250917_14.csv from bucket crypto-data
+[2025-09-18 21:19:50,301] INFO - crypto_etl - Read CSV crypto_data_20250917_14.csv with 6 rows
+[2025-09-18 21:19:50,301] INFO - crypto_etl - Starting data transformation...
+[2025-09-18 21:19:50,302] INFO - crypto_etl - Adding derived metrics...
+[2025-09-18 21:19:50,306] INFO - crypto_etl - Data transformation complete
+[2025-09-18 21:19:50,330] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-18 21:19:50,332] INFO - crypto_etl - Successfully processed crypto_data_20250917_14.csv
+[2025-09-18 21:19:50,333] INFO - crypto_etl - Processing file: crypto_data_20250917_15.csv
+[2025-09-18 21:19:50,333] INFO - crypto_etl - Reading CSV crypto_data_20250917_15.csv from bucket crypto-data
+[2025-09-18 21:19:50,343] INFO - crypto_etl - Read CSV crypto_data_20250917_15.csv with 6 rows
+[2025-09-18 21:19:50,343] INFO - crypto_etl - Starting data transformation...
+[2025-09-18 21:19:50,345] INFO - crypto_etl - Adding derived metrics...
+[2025-09-18 21:19:50,351] INFO - crypto_etl - Data transformation complete
+[2025-09-18 21:19:50,375] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-18 21:19:50,375] INFO - crypto_etl - Successfully processed crypto_data_20250917_15.csv
+[2025-09-18 21:19:50,377] INFO - crypto_etl - Processing file: crypto_data_20250917_16.csv
+[2025-09-18 21:19:50,377] INFO - crypto_etl - Reading CSV crypto_data_20250917_16.csv from bucket crypto-data
+[2025-09-18 21:19:50,386] INFO - crypto_etl - Read CSV crypto_data_20250917_16.csv with 6 rows
+[2025-09-18 21:19:50,387] INFO - crypto_etl - Starting data transformation...
+[2025-09-18 21:19:50,389] INFO - crypto_etl - Adding derived metrics...
+[2025-09-18 21:19:50,401] INFO - crypto_etl - Data transformation complete
+[2025-09-18 21:19:50,423] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-18 21:19:50,423] INFO - crypto_etl - Successfully processed crypto_data_20250917_16.csv
+[2025-09-18 21:19:50,423] INFO - crypto_etl - Processing file: crypto_data_20250917_17.csv
+[2025-09-18 21:19:50,430] INFO - crypto_etl - Reading CSV crypto_data_20250917_17.csv from bucket crypto-data
+[2025-09-18 21:19:50,439] INFO - crypto_etl - Read CSV crypto_data_20250917_17.csv with 6 rows
+[2025-09-18 21:19:50,440] INFO - crypto_etl - Starting data transformation...
+[2025-09-18 21:19:50,441] INFO - crypto_etl - Adding derived metrics...
+[2025-09-18 21:19:50,454] INFO - crypto_etl - Data transformation complete
+[2025-09-18 21:19:50,477] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-18 21:19:50,480] INFO - crypto_etl - Successfully processed crypto_data_20250917_17.csv
+[2025-09-18 21:19:50,481] INFO - crypto_etl - Processing file: crypto_data_20250917_18.csv
+[2025-09-18 21:19:50,482] INFO - crypto_etl - Reading CSV crypto_data_20250917_18.csv from bucket crypto-data
+[2025-09-18 21:19:50,488] INFO - crypto_etl - Read CSV crypto_data_20250917_18.csv with 6 rows
+[2025-09-18 21:19:50,489] INFO - crypto_etl - Starting data transformation...
+[2025-09-18 21:19:50,491] INFO - crypto_etl - Adding derived metrics...
+[2025-09-18 21:19:50,502] INFO - crypto_etl - Data transformation complete
+[2025-09-18 21:19:50,548] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-18 21:19:50,550] INFO - crypto_etl - Successfully processed crypto_data_20250917_18.csv
+[2025-09-18 21:19:50,550] INFO - crypto_etl - Processing file: crypto_data_20250917_19.csv
+[2025-09-18 21:19:50,550] INFO - crypto_etl - Reading CSV crypto_data_20250917_19.csv from bucket crypto-data
+[2025-09-18 21:19:50,564] INFO - crypto_etl - Read CSV crypto_data_20250917_19.csv with 6 rows
+[2025-09-18 21:19:50,565] INFO - crypto_etl - Starting data transformation...
+[2025-09-18 21:19:50,567] INFO - crypto_etl - Adding derived metrics...
+[2025-09-18 21:19:50,582] INFO - crypto_etl - Data transformation complete
+[2025-09-18 21:19:50,613] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-18 21:19:50,614] INFO - crypto_etl - Successfully processed crypto_data_20250917_19.csv
+[2025-09-18 21:19:50,615] INFO - crypto_etl - Processing file: crypto_data_20250917_20.csv
+[2025-09-18 21:19:50,616] INFO - crypto_etl - Reading CSV crypto_data_20250917_20.csv from bucket crypto-data
+[2025-09-18 21:19:50,623] INFO - crypto_etl - Read CSV crypto_data_20250917_20.csv with 6 rows
+[2025-09-18 21:19:50,625] INFO - crypto_etl - Starting data transformation...
+[2025-09-18 21:19:50,625] INFO - crypto_etl - Adding derived metrics...
+[2025-09-18 21:19:50,639] INFO - crypto_etl - Data transformation complete
+[2025-09-18 21:19:50,698] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-18 21:19:50,703] INFO - crypto_etl - Successfully processed crypto_data_20250917_20.csv
+[2025-09-18 21:19:50,705] INFO - crypto_etl - Processing file: crypto_data_20250917_21.csv
+[2025-09-18 21:19:50,706] INFO - crypto_etl - Reading CSV crypto_data_20250917_21.csv from bucket crypto-data
+[2025-09-18 21:19:50,719] INFO - crypto_etl - Read CSV crypto_data_20250917_21.csv with 6 rows
+[2025-09-18 21:19:50,719] INFO - crypto_etl - Starting data transformation...
+[2025-09-18 21:19:50,723] INFO - crypto_etl - Adding derived metrics...
+[2025-09-18 21:19:50,738] INFO - crypto_etl - Data transformation complete
+[2025-09-18 21:19:50,774] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-18 21:19:50,778] INFO - crypto_etl - Successfully processed crypto_data_20250917_21.csv
+[2025-09-18 21:19:50,778] INFO - crypto_etl - Processing file: crypto_data_20250917_22.csv
+[2025-09-18 21:19:50,779] INFO - crypto_etl - Reading CSV crypto_data_20250917_22.csv from bucket crypto-data
+[2025-09-18 21:19:50,784] INFO - crypto_etl - Read CSV crypto_data_20250917_22.csv with 6 rows
+[2025-09-18 21:19:50,784] INFO - crypto_etl - Starting data transformation...
+[2025-09-18 21:19:50,791] INFO - crypto_etl - Adding derived metrics...
+[2025-09-18 21:19:50,804] INFO - crypto_etl - Data transformation complete
+[2025-09-18 21:19:50,897] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-18 21:19:50,897] INFO - crypto_etl - Successfully processed crypto_data_20250917_22.csv
+[2025-09-18 21:19:50,915] INFO - crypto_etl - Processing file: crypto_data_20250917_23.csv
+[2025-09-18 21:19:50,920] INFO - crypto_etl - Reading CSV crypto_data_20250917_23.csv from bucket crypto-data
+[2025-09-18 21:19:50,926] INFO - crypto_etl - Read CSV crypto_data_20250917_23.csv with 6 rows
+[2025-09-18 21:19:50,926] INFO - crypto_etl - Starting data transformation...
+[2025-09-18 21:19:50,929] INFO - crypto_etl - Adding derived metrics...
+[2025-09-18 21:19:50,945] INFO - crypto_etl - Data transformation complete
+[2025-09-18 21:19:50,968] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-18 21:19:50,969] INFO - crypto_etl - Successfully processed crypto_data_20250917_23.csv
+[2025-09-18 21:19:50,971] INFO - crypto_etl - Processing file: crypto_data_20250918_00.csv
+[2025-09-18 21:19:50,971] INFO - crypto_etl - Reading CSV crypto_data_20250918_00.csv from bucket crypto-data
+[2025-09-18 21:19:50,974] INFO - crypto_etl - Read CSV crypto_data_20250918_00.csv with 6 rows
+[2025-09-18 21:19:50,974] INFO - crypto_etl - Starting data transformation...
+[2025-09-18 21:19:50,980] INFO - crypto_etl - Adding derived metrics...
+[2025-09-18 21:19:50,992] INFO - crypto_etl - Data transformation complete
+[2025-09-18 21:19:51,048] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-18 21:19:51,051] INFO - crypto_etl - Successfully processed crypto_data_20250918_00.csv
+[2025-09-18 21:19:51,053] INFO - crypto_etl - Processing file: crypto_data_20250918_01.csv
+[2025-09-18 21:19:51,053] INFO - crypto_etl - Reading CSV crypto_data_20250918_01.csv from bucket crypto-data
+[2025-09-18 21:19:51,067] INFO - crypto_etl - Read CSV crypto_data_20250918_01.csv with 6 rows
+[2025-09-18 21:19:51,068] INFO - crypto_etl - Starting data transformation...
+[2025-09-18 21:19:51,069] INFO - crypto_etl - Adding derived metrics...
+[2025-09-18 21:19:51,083] INFO - crypto_etl - Data transformation complete
+[2025-09-18 21:19:51,104] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-18 21:19:51,106] INFO - crypto_etl - Successfully processed crypto_data_20250918_01.csv
+[2025-09-18 21:19:51,108] INFO - crypto_etl - Processing file: crypto_data_20250918_02.csv
+[2025-09-18 21:19:51,108] INFO - crypto_etl - Reading CSV crypto_data_20250918_02.csv from bucket crypto-data
+[2025-09-18 21:19:51,118] INFO - crypto_etl - Read CSV crypto_data_20250918_02.csv with 6 rows
+[2025-09-18 21:19:51,119] INFO - crypto_etl - Starting data transformation...
+[2025-09-18 21:19:51,120] INFO - crypto_etl - Adding derived metrics...
+[2025-09-18 21:19:51,133] INFO - crypto_etl - Data transformation complete
+[2025-09-18 21:19:51,153] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-18 21:19:51,153] INFO - crypto_etl - Successfully processed crypto_data_20250918_02.csv
+[2025-09-18 21:19:51,156] INFO - crypto_etl - Processing file: crypto_data_20250918_03.csv
+[2025-09-18 21:19:51,157] INFO - crypto_etl - Reading CSV crypto_data_20250918_03.csv from bucket crypto-data
+[2025-09-18 21:19:51,165] INFO - crypto_etl - Read CSV crypto_data_20250918_03.csv with 6 rows
+[2025-09-18 21:19:51,165] INFO - crypto_etl - Starting data transformation...
+[2025-09-18 21:19:51,169] INFO - crypto_etl - Adding derived metrics...
+[2025-09-18 21:19:51,187] INFO - crypto_etl - Data transformation complete
+[2025-09-18 21:19:51,206] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-18 21:19:51,207] INFO - crypto_etl - Successfully processed crypto_data_20250918_03.csv
+[2025-09-18 21:19:51,207] INFO - crypto_etl - Processing file: crypto_data_20250918_04.csv
+[2025-09-18 21:19:51,207] INFO - crypto_etl - Reading CSV crypto_data_20250918_04.csv from bucket crypto-data
+[2025-09-18 21:19:51,218] INFO - crypto_etl - Read CSV crypto_data_20250918_04.csv with 6 rows
+[2025-09-18 21:19:51,219] INFO - crypto_etl - Starting data transformation...
+[2025-09-18 21:19:51,221] INFO - crypto_etl - Adding derived metrics...
+[2025-09-18 21:19:51,233] INFO - crypto_etl - Data transformation complete
+[2025-09-18 21:19:51,260] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-18 21:19:51,261] INFO - crypto_etl - Successfully processed crypto_data_20250918_04.csv
+[2025-09-18 21:19:51,263] INFO - crypto_etl - Processing file: crypto_data_20250918_05.csv
+[2025-09-18 21:19:51,263] INFO - crypto_etl - Reading CSV crypto_data_20250918_05.csv from bucket crypto-data
+[2025-09-18 21:19:51,272] INFO - crypto_etl - Read CSV crypto_data_20250918_05.csv with 6 rows
+[2025-09-18 21:19:51,274] INFO - crypto_etl - Starting data transformation...
+[2025-09-18 21:19:51,274] INFO - crypto_etl - Adding derived metrics...
+[2025-09-18 21:19:51,287] INFO - crypto_etl - Data transformation complete
+[2025-09-18 21:19:51,308] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-18 21:19:51,308] INFO - crypto_etl - Successfully processed crypto_data_20250918_05.csv
+[2025-09-18 21:19:51,308] INFO - crypto_etl - Processing file: crypto_data_20250918_06.csv
+[2025-09-18 21:19:51,312] INFO - crypto_etl - Reading CSV crypto_data_20250918_06.csv from bucket crypto-data
+[2025-09-18 21:19:51,319] INFO - crypto_etl - Read CSV crypto_data_20250918_06.csv with 6 rows
+[2025-09-18 21:19:51,319] INFO - crypto_etl - Starting data transformation...
+[2025-09-18 21:19:51,323] INFO - crypto_etl - Adding derived metrics...
+[2025-09-18 21:19:51,337] INFO - crypto_etl - Data transformation complete
+[2025-09-18 21:19:51,398] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-18 21:19:51,398] INFO - crypto_etl - Successfully processed crypto_data_20250918_06.csv
+[2025-09-18 21:19:51,398] INFO - crypto_etl - Processing file: crypto_data_20250918_07.csv
+[2025-09-18 21:19:51,406] INFO - crypto_etl - Reading CSV crypto_data_20250918_07.csv from bucket crypto-data
+[2025-09-18 21:19:51,422] INFO - crypto_etl - Read CSV crypto_data_20250918_07.csv with 6 rows
+[2025-09-18 21:19:51,423] INFO - crypto_etl - Starting data transformation...
+[2025-09-18 21:19:51,424] INFO - crypto_etl - Adding derived metrics...
+[2025-09-18 21:19:51,436] INFO - crypto_etl - Data transformation complete
+[2025-09-18 21:19:51,452] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-18 21:19:51,455] INFO - crypto_etl - Successfully processed crypto_data_20250918_07.csv
+[2025-09-18 21:19:51,456] INFO - crypto_etl - Processing file: crypto_data_20250918_08.csv
+[2025-09-18 21:19:51,456] INFO - crypto_etl - Reading CSV crypto_data_20250918_08.csv from bucket crypto-data
+[2025-09-18 21:19:51,464] INFO - crypto_etl - Read CSV crypto_data_20250918_08.csv with 6 rows
+[2025-09-18 21:19:51,464] INFO - crypto_etl - Starting data transformation...
+[2025-09-18 21:19:51,466] INFO - crypto_etl - Adding derived metrics...
+[2025-09-18 21:19:51,474] INFO - crypto_etl - Data transformation complete
+[2025-09-18 21:19:51,507] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-18 21:19:51,513] INFO - crypto_etl - Successfully processed crypto_data_20250918_08.csv
+[2025-09-18 21:19:51,514] INFO - crypto_etl - Processing file: crypto_data_20250918_09.csv
+[2025-09-18 21:19:51,515] INFO - crypto_etl - Reading CSV crypto_data_20250918_09.csv from bucket crypto-data
+[2025-09-18 21:19:51,522] INFO - crypto_etl - Read CSV crypto_data_20250918_09.csv with 6 rows
+[2025-09-18 21:19:51,522] INFO - crypto_etl - Starting data transformation...
+[2025-09-18 21:19:51,522] INFO - crypto_etl - Adding derived metrics...
+[2025-09-18 21:19:51,536] INFO - crypto_etl - Data transformation complete
+[2025-09-18 21:19:51,563] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-18 21:19:51,563] INFO - crypto_etl - Successfully processed crypto_data_20250918_09.csv
+[2025-09-18 21:19:51,565] INFO - crypto_etl - Processing file: crypto_data_20250918_10.csv
+[2025-09-18 21:19:51,566] INFO - crypto_etl - Reading CSV crypto_data_20250918_10.csv from bucket crypto-data
+[2025-09-18 21:19:51,574] INFO - crypto_etl - Read CSV crypto_data_20250918_10.csv with 6 rows
+[2025-09-18 21:19:51,574] INFO - crypto_etl - Starting data transformation...
+[2025-09-18 21:19:51,574] INFO - crypto_etl - Adding derived metrics...
+[2025-09-18 21:19:51,593] INFO - crypto_etl - Data transformation complete
+[2025-09-18 21:19:51,615] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-18 21:19:51,616] INFO - crypto_etl - Successfully processed crypto_data_20250918_10.csv
+[2025-09-18 21:19:51,616] INFO - crypto_etl - Processing file: crypto_data_20250918_11.csv
+[2025-09-18 21:19:51,618] INFO - crypto_etl - Reading CSV crypto_data_20250918_11.csv from bucket crypto-data
+[2025-09-18 21:19:51,627] INFO - crypto_etl - Read CSV crypto_data_20250918_11.csv with 6 rows
+[2025-09-18 21:19:51,628] INFO - crypto_etl - Starting data transformation...
+[2025-09-18 21:19:51,630] INFO - crypto_etl - Adding derived metrics...
+[2025-09-18 21:19:51,641] INFO - crypto_etl - Data transformation complete
+[2025-09-18 21:19:51,676] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-18 21:19:51,677] INFO - crypto_etl - Successfully processed crypto_data_20250918_11.csv
+[2025-09-18 21:19:51,678] INFO - crypto_etl - ETL pipeline completed successfully
