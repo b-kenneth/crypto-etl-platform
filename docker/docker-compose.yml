@@ -34,7 +34,7 @@ services:
     environment:
       POSTGRES_USER: ${POSTGRES_USER_A}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD_A}
-      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_DB: ${POSTGRES_DB_A}
     volumes:
       - postgres-db-volume:/var/lib/postgresql/data
     healthcheck:
