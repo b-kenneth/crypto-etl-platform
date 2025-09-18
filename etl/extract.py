@@ -1,11 +1,13 @@
 import os
-import logging
 from minio import Minio
 from minio.error import S3Error
 import pandas as pd
 from io import BytesIO
+from dotenv import load_dotenv
 
-logger = logging.getLogger(__name__)
+from .logger_config import logger  # use configured logger
+
+load_dotenv("../docker/.env")
 
 class MinioExtractor:
     def __init__(self):
