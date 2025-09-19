@@ -1,0 +1,18 @@
+[2025-09-19T13:33:06.272+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: crypto_data_generator.generate_and_upload_crypto_data manual__2025-09-19T13:33:02.468391+00:00 [queued]>
+[2025-09-19T13:33:06.299+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: crypto_data_generator.generate_and_upload_crypto_data manual__2025-09-19T13:33:02.468391+00:00 [queued]>
+[2025-09-19T13:33:06.300+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 3
+[2025-09-19T13:33:06.329+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): generate_and_upload_crypto_data> on 2025-09-19 13:33:02.468391+00:00
+[2025-09-19T13:33:06.338+0000] {standard_task_runner.py:60} INFO - Started process 202 to run task
+[2025-09-19T13:33:06.346+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'crypto_data_generator', 'generate_and_upload_crypto_data', 'manual__2025-09-19T13:33:02.468391+00:00', '--job-id', '67', '--raw', '--subdir', 'DAGS_FOLDER/crypto_data_generator_dag.py', '--cfg-path', '/tmp/tmppegvma4t']
+[2025-09-19T13:33:06.349+0000] {standard_task_runner.py:88} INFO - Job 67: Subtask generate_and_upload_crypto_data
+[2025-09-19T13:33:06.441+0000] {task_command.py:423} INFO - Running <TaskInstance: crypto_data_generator.generate_and_upload_crypto_data manual__2025-09-19T13:33:02.468391+00:00 [running]> on host ed735ff6f76b
+[2025-09-19T13:33:06.637+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-team' AIRFLOW_CTX_DAG_ID='crypto_data_generator' AIRFLOW_CTX_TASK_ID='generate_and_upload_crypto_data' AIRFLOW_CTX_EXECUTION_DATE='2025-09-19T13:33:02.468391+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-19T13:33:02.468391+00:00'
+[2025-09-19T13:33:06.648+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.8/site-packages/***/utils/context.py:315: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(k, replacements))
+
+[2025-09-19T13:33:06.651+0000] {logging_mixin.py:188} INFO - Generated /tmp/crypto_data_20250919_13.csv
+[2025-09-19T13:33:06.680+0000] {logging_mixin.py:188} INFO - Uploaded /tmp/crypto_data_20250919_13.csv to crypto-data/raw-data/2025/09/19/13/crypto_data_20250919_13.csv
+[2025-09-19T13:33:06.682+0000] {python.py:201} INFO - Done. Returned value was: {'file_path': 'raw-data/2025/09/19/13/crypto_data_20250919_13.csv', 'records': 'generated'}
+[2025-09-19T13:33:06.732+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=crypto_data_generator, task_id=generate_and_upload_crypto_data, execution_date=20250919T133302, start_date=20250919T133306, end_date=20250919T133306
+[2025-09-19T13:33:06.800+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-09-19T13:33:06.848+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

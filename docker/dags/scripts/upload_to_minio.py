@@ -10,8 +10,10 @@ DATA_DIR = "../scripts/data"  # Directory where CSVs are stored
 def upload_files():
     client = Minio(
         os.getenv("MINIO_ENDPOINT", "localhost:9000"),
-        access_key=os.getenv("MINIO_ACCESS_KEY"),
-        secret_key=os.getenv("MINIO_SECRET_KEY"),
+        # access_key=os.getenv("MINIO_ACCESS_KEY"),
+        # secret_key=os.getenv("MINIO_SECRET_KEY"),
+        access_key=os.getenv("MINIO_ACCESS_KEY", "minio-access"),
+        secret_key=os.getenv("MINIO_SECRET_KEY", "minio-secret"),
         secure=False,  # Set True if your MinIO uses TLS/SSL
     )
 

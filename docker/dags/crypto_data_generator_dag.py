@@ -4,6 +4,14 @@ from airflow.operators.python import PythonOperator
 import pandas as pd
 import os
 from minio import Minio
+from dotenv import load_dotenv
+
+import sys
+sys.path.append('/opt/airflow')
+
+# load_dotenv('/opt/airflow/.env')
+    
+from scripts.generate_data import generate_csv_for_hour
 
 default_args = {
     'owner': 'data-team',
@@ -27,13 +35,13 @@ dag = DAG(
 def upload_to_organized_path(local_file_path: str, minio_object_path: str):
     """Upload file to MinIO with organized folder structure"""
     client = Minio(
-        os.getenv("MINIO_ENDPOINT", "localhost:9000"),
-        access_key=os.getenv("MINIO_ACCESS_KEY"),
-        secret_key=os.getenv("MINIO_SECRET_KEY"),
+        os.getenv("MINIO_ENDPOIN", "minio:9000"),
+        access_key=os.getenv("MINIO_ACCESS_KE", "minio-access"),
+        secret_key=os.getenv("MINIO_SECRET_KE", "minio-secret"),
         secure=False,
     )
     
-    bucket_name = os.getenv("MINIO_BUCKET", "crypto-data")
+    bucket_name = os.getenv("MINIO_BUCKET")
     
     try:
         if not client.bucket_exists(bucket_name):
@@ -51,10 +59,6 @@ def upload_to_organized_path(local_file_path: str, minio_object_path: str):
 
 def generate_and_upload_data(**context):
     """Generate crypto data and upload to MinIO with organized folder structure"""
-    import sys
-    sys.path.append('/opt/airflow')
-    
-    from scripts.generate_data import generate_csv_for_hour
     
     execution_date = context['execution_date']
     folder_path = f"raw-data/{execution_date.strftime('%Y/%m/%d/%H')}"
