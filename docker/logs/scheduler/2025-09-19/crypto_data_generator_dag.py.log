@@ -807,3 +807,38 @@ ModuleNotFoundError: No module named 'minio'
 [2025-09-19T08:31:27.438+0000] {logging_mixin.py:188} INFO - [2025-09-19T08:31:27.437+0000] {dag.py:3036} INFO - Sync 1 DAGs
 [2025-09-19T08:31:27.475+0000] {logging_mixin.py:188} INFO - [2025-09-19T08:31:27.475+0000] {dag.py:3823} INFO - Setting next_dagrun for crypto_data_generator to 2025-09-19 07:00:00+00:00, run_after=2025-09-19 08:00:00+00:00
 [2025-09-19T08:31:27.505+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/crypto_data_generator_dag.py took 0.944 seconds
+[2025-09-19T08:31:57.674+0000] {processor.py:161} INFO - Started process (PID=1780) to work on /opt/airflow/dags/crypto_data_generator_dag.py
+[2025-09-19T08:31:57.676+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/crypto_data_generator_dag.py for tasks to queue
+[2025-09-19T08:31:57.680+0000] {logging_mixin.py:188} INFO - [2025-09-19T08:31:57.680+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/crypto_data_generator_dag.py
+[2025-09-19T08:31:58.599+0000] {processor.py:840} INFO - DAG(s) 'crypto_data_generator' retrieved from /opt/airflow/dags/crypto_data_generator_dag.py
+[2025-09-19T08:31:58.626+0000] {logging_mixin.py:188} INFO - [2025-09-19T08:31:58.625+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-09-19T08:31:58.665+0000] {logging_mixin.py:188} INFO - [2025-09-19T08:31:58.664+0000] {dag.py:3823} INFO - Setting next_dagrun for crypto_data_generator to 2025-09-19 07:00:00+00:00, run_after=2025-09-19 08:00:00+00:00
+[2025-09-19T08:31:58.703+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/crypto_data_generator_dag.py took 1.036 seconds
+[2025-09-19T08:32:29.053+0000] {processor.py:161} INFO - Started process (PID=1837) to work on /opt/airflow/dags/crypto_data_generator_dag.py
+[2025-09-19T08:32:29.056+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/crypto_data_generator_dag.py for tasks to queue
+[2025-09-19T08:32:29.059+0000] {logging_mixin.py:188} INFO - [2025-09-19T08:32:29.059+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/crypto_data_generator_dag.py
+[2025-09-19T08:32:30.011+0000] {processor.py:840} INFO - DAG(s) 'crypto_data_generator' retrieved from /opt/airflow/dags/crypto_data_generator_dag.py
+[2025-09-19T08:32:30.052+0000] {logging_mixin.py:188} INFO - [2025-09-19T08:32:30.050+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-09-19T08:32:30.113+0000] {logging_mixin.py:188} INFO - [2025-09-19T08:32:30.112+0000] {dag.py:3823} INFO - Setting next_dagrun for crypto_data_generator to 2025-09-19 07:00:00+00:00, run_after=2025-09-19 08:00:00+00:00
+[2025-09-19T08:32:30.160+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/crypto_data_generator_dag.py took 1.114 seconds
+[2025-09-19T08:33:00.855+0000] {processor.py:161} INFO - Started process (PID=1895) to work on /opt/airflow/dags/crypto_data_generator_dag.py
+[2025-09-19T08:33:00.857+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/crypto_data_generator_dag.py for tasks to queue
+[2025-09-19T08:33:00.861+0000] {logging_mixin.py:188} INFO - [2025-09-19T08:33:00.861+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/crypto_data_generator_dag.py
+[2025-09-19T08:33:01.698+0000] {processor.py:840} INFO - DAG(s) 'crypto_data_generator' retrieved from /opt/airflow/dags/crypto_data_generator_dag.py
+[2025-09-19T08:33:01.724+0000] {logging_mixin.py:188} INFO - [2025-09-19T08:33:01.724+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-09-19T08:33:01.766+0000] {logging_mixin.py:188} INFO - [2025-09-19T08:33:01.766+0000] {dag.py:3823} INFO - Setting next_dagrun for crypto_data_generator to 2025-09-19 07:00:00+00:00, run_after=2025-09-19 08:00:00+00:00
+[2025-09-19T08:33:01.805+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/crypto_data_generator_dag.py took 0.958 seconds
+[2025-09-19T08:33:32.713+0000] {processor.py:161} INFO - Started process (PID=1954) to work on /opt/airflow/dags/crypto_data_generator_dag.py
+[2025-09-19T08:33:32.715+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/crypto_data_generator_dag.py for tasks to queue
+[2025-09-19T08:33:32.719+0000] {logging_mixin.py:188} INFO - [2025-09-19T08:33:32.718+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/crypto_data_generator_dag.py
+[2025-09-19T08:33:33.536+0000] {processor.py:840} INFO - DAG(s) 'crypto_data_generator' retrieved from /opt/airflow/dags/crypto_data_generator_dag.py
+[2025-09-19T08:33:33.563+0000] {logging_mixin.py:188} INFO - [2025-09-19T08:33:33.562+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-09-19T08:33:33.605+0000] {logging_mixin.py:188} INFO - [2025-09-19T08:33:33.605+0000] {dag.py:3823} INFO - Setting next_dagrun for crypto_data_generator to 2025-09-19 07:00:00+00:00, run_after=2025-09-19 08:00:00+00:00
+[2025-09-19T08:33:33.639+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/crypto_data_generator_dag.py took 0.931 seconds
+[2025-09-19T08:34:03.749+0000] {processor.py:161} INFO - Started process (PID=2015) to work on /opt/airflow/dags/crypto_data_generator_dag.py
+[2025-09-19T08:34:03.751+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/crypto_data_generator_dag.py for tasks to queue
+[2025-09-19T08:34:03.754+0000] {logging_mixin.py:188} INFO - [2025-09-19T08:34:03.754+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/crypto_data_generator_dag.py
+[2025-09-19T08:34:04.534+0000] {processor.py:840} INFO - DAG(s) 'crypto_data_generator' retrieved from /opt/airflow/dags/crypto_data_generator_dag.py
+[2025-09-19T08:34:04.561+0000] {logging_mixin.py:188} INFO - [2025-09-19T08:34:04.560+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-09-19T08:34:04.596+0000] {logging_mixin.py:188} INFO - [2025-09-19T08:34:04.596+0000] {dag.py:3823} INFO - Setting next_dagrun for crypto_data_generator to 2025-09-19 07:00:00+00:00, run_after=2025-09-19 08:00:00+00:00
+[2025-09-19T08:34:04.634+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/crypto_data_generator_dag.py took 0.893 seconds
