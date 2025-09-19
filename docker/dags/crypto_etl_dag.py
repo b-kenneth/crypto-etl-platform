@@ -6,6 +6,7 @@ from airflow.operators.dummy import DummyOperator
 from airflow.utils.trigger_rule import TriggerRule
 import sys
 import os
+import etl.logger_config 
 
 # Add project root to Python path
 sys.path.append('/opt/airflow')

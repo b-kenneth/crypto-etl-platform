@@ -1,0 +1,43 @@
+[2025-09-19 13:48:17,282] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-19 13:48:17,296] ERROR - crypto_etl - Failed to list objects: S3 operation failed; code: SignatureDoesNotMatch, message: The request signature we calculated does not match the signature you provided. Check your key and signing method., resource: /crypto-data, request_id: 1866B329F351D9BB, host_id: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8, bucket_name: crypto-data
+[2025-09-19 13:52:51,594] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-19 13:52:51,618] INFO - crypto_etl - Found 1 CSV files
+[2025-09-19 13:57:56,367] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-19 13:57:56,390] INFO - crypto_etl - Found 1 CSV files
+[2025-09-19 14:00:05,445] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-19 14:00:05,475] INFO - crypto_etl - Found 1 CSV files
+[2025-09-19 14:05:08,217] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-19 14:05:08,249] INFO - crypto_etl - Found 1 CSV files
+[2025-09-19 14:06:38,905] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-19 14:06:38,926] INFO - crypto_etl - Found 1 CSV files
+[2025-09-19 14:10:09,183] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-19 14:10:09,199] INFO - crypto_etl - Found 1 CSV files
+[2025-09-19 14:14:23,823] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-19 14:14:23,837] INFO - crypto_etl - Found 1 CSV files
+[2025-09-19 14:15:55,996] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-19 14:15:56,012] INFO - crypto_etl - Found 1 CSV files
+[2025-09-19 14:15:56,030] INFO - crypto_etl - Found 1 unprocessed files out of 1 total
+[2025-09-19 14:21:28,364] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-19 14:21:28,381] INFO - crypto_etl - Found 1 CSV files
+[2025-09-19 14:21:28,392] INFO - crypto_etl - Found 1 unprocessed files out of 1 total
+[2025-09-19 14:24:49,482] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-19 14:24:49,502] INFO - crypto_etl - Found 1 CSV files
+[2025-09-19 14:24:49,513] INFO - crypto_etl - Found 1 unprocessed files out of 1 total
+[2025-09-19 14:24:53,223] INFO - crypto_etl - Marked raw-data/2025/09/19/13/crypto_data_20250919_13.csv as processing
+[2025-09-19 14:24:53,227] INFO - crypto_etl - Reading CSV raw-data/2025/09/19/13/crypto_data_20250919_13.csv from bucket crypto-data
+[2025-09-19 14:24:53,287] INFO - crypto_etl - Read CSV raw-data/2025/09/19/13/crypto_data_20250919_13.csv with 6 rows
+[2025-09-19 14:28:04,417] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-19 14:28:04,436] INFO - crypto_etl - Found 1 CSV files
+[2025-09-19 14:28:04,448] INFO - crypto_etl - Found 0 unprocessed files out of 1 total
+[2025-09-19 14:30:03,438] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-19 14:30:03,468] INFO - crypto_etl - Found 1 CSV files
+[2025-09-19 14:30:03,478] INFO - crypto_etl - Found 0 unprocessed files out of 1 total
+[2025-09-19 14:34:37,383] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-19 14:34:37,404] INFO - crypto_etl - Found 2 CSV files
+[2025-09-19 14:34:37,413] INFO - crypto_etl - Found 1 unprocessed files out of 2 total
+[2025-09-19 14:34:41,538] INFO - crypto_etl - Marked raw-data/2025/09/19/14/crypto_data_20250919_14.csv as processing
+[2025-09-19 14:34:41,541] INFO - crypto_etl - Reading CSV raw-data/2025/09/19/14/crypto_data_20250919_14.csv from bucket crypto-data
+[2025-09-19 14:34:41,564] INFO - crypto_etl - Read CSV raw-data/2025/09/19/14/crypto_data_20250919_14.csv with 6 rows
+[2025-09-19 14:45:03,296] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-19 14:45:03,315] INFO - crypto_etl - Found 2 CSV files
+[2025-09-19 14:45:03,325] INFO - crypto_etl - Found 0 unprocessed files out of 2 total

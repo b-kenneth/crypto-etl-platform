@@ -1,6 +1,6 @@
 import pandas as pd
 from typing import Dict, List, Tuple
-from logger_config import logger
+from etl.logger_config import logger
 
 class DataQualityChecker:
     

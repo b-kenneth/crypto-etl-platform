@@ -5,16 +5,19 @@ import pandas as pd
 from io import BytesIO
 from dotenv import load_dotenv
 
-from logger_config import logger  # use configured logger
+from etl.logger_config import logger  # use configured logger
 
 load_dotenv("../docker/.env")
 
 class MinioExtractor:
     def __init__(self):
         self.client = Minio(
-            os.getenv("MINIO_ENDPOINT", "localhost:9000"),
-            access_key=os.getenv("MINIO_ACCESS_KEY"),
-            secret_key=os.getenv("MINIO_SECRET_KEY"),
+            # os.getenv("MINIO_ENDPOINT", "localhost:9000"),
+            # access_key=os.getenv("MINIO_ACCESS_KEY"),
+            # secret_key=os.getenv("MINIO_SECRET_KEY"),
+            os.getenv("MINIO_ENDPOIN", "minio:9000"),
+            access_key=os.getenv("MINIO_ACCESS_KE", "minio-access"),
+            secret_key=os.getenv("MINIO_SECRET_KE", "minio-secret"),
             secure=False,
         )
         self.bucket_name = os.getenv("MINIO_BUCKET", "crypto-data")

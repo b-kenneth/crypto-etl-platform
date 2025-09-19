@@ -1,6 +1,6 @@
 import psycopg2
 from typing import List, Dict, Optional
-from .logger_config import logger
+from etl.logger_config import logger
 import os
 from dotenv import load_dotenv
 
@@ -9,7 +9,8 @@ load_dotenv("../docker/.env")
 class FileProcessingManager:
     
     def __init__(self):
-        self.db_conn = os.getenv("POSTGRES_CONN")
+        # self.db_conn = os.getenv("POSTGRES_CONN")
+        self.db_conn = "postgresql://postgres:postgres@192.168.192.1:5433/postgres"
     
     def get_unprocessed_files(self, available_files: List[str]) -> List[str]:
         """Return list of files that haven't been processed yet"""
