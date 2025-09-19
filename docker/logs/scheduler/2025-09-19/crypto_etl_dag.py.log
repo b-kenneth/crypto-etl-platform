@@ -1,0 +1,67 @@
+[2025-09-19T09:11:44.949+0000] {processor.py:161} INFO - Started process (PID=6235) to work on /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:11:44.951+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/crypto_etl_dag.py for tasks to queue
+[2025-09-19T09:11:44.954+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:11:44.954+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:11:45.011+0000] {processor.py:840} INFO - DAG(s) 'crypto_etl_main' retrieved from /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:11:45.225+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:11:45.224+0000] {override.py:1769} INFO - Created Permission View: can read on DAG:crypto_etl_main
+[2025-09-19T09:11:45.245+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:11:45.244+0000] {override.py:1769} INFO - Created Permission View: can delete on DAG:crypto_etl_main
+[2025-09-19T09:11:45.258+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:11:45.258+0000] {override.py:1769} INFO - Created Permission View: can edit on DAG:crypto_etl_main
+[2025-09-19T09:11:45.260+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:11:45.259+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-09-19T09:11:45.281+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:11:45.280+0000] {dag.py:3058} INFO - Creating ORM DAG for crypto_etl_main
+[2025-09-19T09:11:45.299+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:11:45.299+0000] {dag.py:3823} INFO - Setting next_dagrun for crypto_etl_main to 2025-09-19 08:45:00+00:00, run_after=2025-09-19 09:00:00+00:00
+[2025-09-19T09:11:45.345+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/crypto_etl_dag.py took 0.401 seconds
+[2025-09-19T09:12:15.576+0000] {processor.py:161} INFO - Started process (PID=6294) to work on /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:12:15.578+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/crypto_etl_dag.py for tasks to queue
+[2025-09-19T09:12:15.581+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:12:15.581+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:12:15.614+0000] {processor.py:840} INFO - DAG(s) 'crypto_etl_main' retrieved from /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:12:15.657+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:12:15.657+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-09-19T09:12:15.698+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:12:15.697+0000] {dag.py:3823} INFO - Setting next_dagrun for crypto_etl_main to 2025-09-19 08:45:00+00:00, run_after=2025-09-19 09:00:00+00:00
+[2025-09-19T09:12:15.755+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/crypto_etl_dag.py took 0.186 seconds
+[2025-09-19T09:12:45.993+0000] {processor.py:161} INFO - Started process (PID=6352) to work on /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:12:45.995+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/crypto_etl_dag.py for tasks to queue
+[2025-09-19T09:12:45.999+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:12:45.999+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:12:46.033+0000] {processor.py:840} INFO - DAG(s) 'crypto_etl_main' retrieved from /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:12:46.076+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:12:46.075+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-09-19T09:12:46.116+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:12:46.116+0000] {dag.py:3823} INFO - Setting next_dagrun for crypto_etl_main to 2025-09-19 08:45:00+00:00, run_after=2025-09-19 09:00:00+00:00
+[2025-09-19T09:12:46.158+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/crypto_etl_dag.py took 0.171 seconds
+[2025-09-19T09:13:16.230+0000] {processor.py:161} INFO - Started process (PID=6410) to work on /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:13:16.232+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/crypto_etl_dag.py for tasks to queue
+[2025-09-19T09:13:16.235+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:13:16.235+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:13:16.271+0000] {processor.py:840} INFO - DAG(s) 'crypto_etl_main' retrieved from /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:13:16.315+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:13:16.315+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-09-19T09:13:16.355+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:13:16.355+0000] {dag.py:3823} INFO - Setting next_dagrun for crypto_etl_main to 2025-09-19 08:45:00+00:00, run_after=2025-09-19 09:00:00+00:00
+[2025-09-19T09:13:16.395+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/crypto_etl_dag.py took 0.170 seconds
+[2025-09-19T09:13:46.483+0000] {processor.py:161} INFO - Started process (PID=6468) to work on /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:13:46.485+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/crypto_etl_dag.py for tasks to queue
+[2025-09-19T09:13:46.488+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:13:46.488+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:13:46.522+0000] {processor.py:840} INFO - DAG(s) 'crypto_etl_main' retrieved from /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:13:46.563+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:13:46.563+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-09-19T09:13:46.603+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:13:46.603+0000] {dag.py:3823} INFO - Setting next_dagrun for crypto_etl_main to 2025-09-19 08:45:00+00:00, run_after=2025-09-19 09:00:00+00:00
+[2025-09-19T09:13:46.642+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/crypto_etl_dag.py took 0.168 seconds
+[2025-09-19T09:14:17.190+0000] {processor.py:161} INFO - Started process (PID=6524) to work on /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:14:17.192+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/crypto_etl_dag.py for tasks to queue
+[2025-09-19T09:14:17.196+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:14:17.195+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:14:17.230+0000] {processor.py:840} INFO - DAG(s) 'crypto_etl_main' retrieved from /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:14:17.279+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:14:17.279+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-09-19T09:14:17.328+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:14:17.328+0000] {dag.py:3823} INFO - Setting next_dagrun for crypto_etl_main to 2025-09-19 08:45:00+00:00, run_after=2025-09-19 09:00:00+00:00
+[2025-09-19T09:14:17.367+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/crypto_etl_dag.py took 0.183 seconds
+[2025-09-19T09:14:47.708+0000] {processor.py:161} INFO - Started process (PID=6582) to work on /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:14:47.710+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/crypto_etl_dag.py for tasks to queue
+[2025-09-19T09:14:47.714+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:14:47.713+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:14:47.748+0000] {processor.py:840} INFO - DAG(s) 'crypto_etl_main' retrieved from /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:14:47.791+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:14:47.790+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-09-19T09:14:47.830+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:14:47.830+0000] {dag.py:3823} INFO - Setting next_dagrun for crypto_etl_main to 2025-09-19 08:45:00+00:00, run_after=2025-09-19 09:00:00+00:00
+[2025-09-19T09:14:47.864+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/crypto_etl_dag.py took 0.162 seconds
+[2025-09-19T09:15:18.656+0000] {processor.py:161} INFO - Started process (PID=6640) to work on /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:15:18.659+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/crypto_etl_dag.py for tasks to queue
+[2025-09-19T09:15:18.663+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:15:18.663+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:15:18.698+0000] {processor.py:840} INFO - DAG(s) 'crypto_etl_main' retrieved from /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:15:18.743+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:15:18.743+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-09-19T09:15:18.786+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:15:18.786+0000] {dag.py:3823} INFO - Setting next_dagrun for crypto_etl_main to 2025-09-19 09:00:00+00:00, run_after=2025-09-19 09:15:00+00:00
+[2025-09-19T09:15:18.830+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/crypto_etl_dag.py took 0.184 seconds
+[2025-09-19T09:15:30.451+0000] {processor.py:161} INFO - Started process (PID=6675) to work on /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:15:30.453+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/crypto_etl_dag.py for tasks to queue
+[2025-09-19T09:15:30.457+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:15:30.456+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:15:30.519+0000] {processor.py:840} INFO - DAG(s) 'crypto_etl_main' retrieved from /opt/airflow/dags/crypto_etl_dag.py
+[2025-09-19T09:15:30.562+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:15:30.561+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-09-19T09:15:30.601+0000] {logging_mixin.py:188} INFO - [2025-09-19T09:15:30.601+0000] {dag.py:3823} INFO - Setting next_dagrun for crypto_etl_main to 2025-09-19 09:00:00+00:00, run_after=2025-09-19 09:15:00+00:00
+[2025-09-19T09:15:30.644+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/crypto_etl_dag.py took 0.200 seconds
