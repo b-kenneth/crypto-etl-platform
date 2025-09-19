@@ -5,10 +5,11 @@ from psycopg2.extras import execute_values
 import pandas as pd
 from dotenv import load_dotenv
 
-from logger_config import logger  # use configured logger
+from etl.logger_config import logger
 
 load_dotenv("../docker/.env")
-DB_CONN = os.getenv("POSTGRES_CONN")
+# DB_CONN = os.getenv("POSTGRES_CONN")
+DB_CONN = "postgresql://postgres:postgres@192.168.192.1:5433/postgres"
 
 def get_connection():
     conn = psycopg2.connect(DB_CONN)

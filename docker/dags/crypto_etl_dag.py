@@ -273,20 +273,20 @@ check_files_task = BranchPythonOperator(
 
 no_files_task = DummyOperator(task_id='no_new_files', dag=dag)
 
-validate_structure_task = BranchPythonOperator(
+validate_structure_task = PythonOperator(
     task_id='validate_files',
     python_callable=validate_file_structure,
     dag=dag,
 )
 
-extract_quality_task = BranchPythonOperator(
+extract_quality_task = PythonOperator(
     task_id='extract_data',
     python_callable=extract_and_quality_check,
     dag=dag,
 )
 
 transform_load_task = PythonOperator(
-    task_id='transform_data',
+    task_id='transform__and_load_data',
     python_callable=transform_and_load_data,
     dag=dag,
 )

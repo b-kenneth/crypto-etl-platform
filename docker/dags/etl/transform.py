@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from logger_config import logger
+from etl.logger_config import logger
 
 def validate_data(df: pd.DataFrame) -> bool:
     required_columns = ['timestamp', 'symbol', 'open', 'high', 'low', 'close', 'volume', 'market_cap', 'volatility']
