@@ -26,10 +26,41 @@ def simulate_hourly_data(base_price):
     market_cap = base_price * volume * 10000  # simplified
     return open_price, high_price, low_price, close_price, volume, market_cap, volatility
 
-def generate_csv_for_hour(dt):
-    """Generate CSV file for all coins for a single hour"""
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
-    filename = dt.strftime(f"{OUTPUT_DIR}/crypto_data_%Y%m%d_%H.csv")
+# def generate_csv_for_hour(dt):
+#     """Generate CSV file for all coins for a single hour"""
+#     os.makedirs(OUTPUT_DIR, exist_ok=True)
+#     filename = dt.strftime(f"{OUTPUT_DIR}/crypto_data_%Y%m%d_%H.csv")
+#     with open(filename, 'w', newline='') as csvfile:
+#         fieldnames = ['timestamp','symbol','open','high','low','close','volume','market_cap','volatility']
+#         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+#         writer.writeheader()
+#         timestamp = dt.isoformat()
+#         for symbol, base_price in COINS.items():
+#             o,h,l,c,v,mc,vol = simulate_hourly_data(base_price)
+#             writer.writerow({
+#                 'timestamp': timestamp,
+#                 'symbol': symbol,
+#                 'open': round(o, 2),
+#                 'high': round(h, 2),
+#                 'low': round(l, 2),
+#                 'close': round(c, 2),
+#                 'volume': round(v, 2),
+#                 'market_cap': round(mc, 2),
+#                 'volatility': round(vol, 4)
+#             })
+#     print(f"Generated {filename}")
+
+def generate_csv_for_hour(dt, output_path=None):
+    """Generate CSV file for all coins for a single hour with custom output path"""
+    import os
+    
+    if output_path:
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
+        filename = output_path
+    else:
+        os.makedirs(OUTPUT_DIR, exist_ok=True)
+        filename = dt.strftime(f"{OUTPUT_DIR}/crypto_data_%Y%m%d_%H.csv")
+    
     with open(filename, 'w', newline='') as csvfile:
         fieldnames = ['timestamp','symbol','open','high','low','close','volume','market_cap','volatility']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -49,6 +80,8 @@ def generate_csv_for_hour(dt):
                 'volatility': round(vol, 4)
             })
     print(f"Generated {filename}")
+    return filename
+
 
 if __name__ == "__main__":
     # Generate last 24 hours of data for demo

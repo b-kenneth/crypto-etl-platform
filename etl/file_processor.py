@@ -2,6 +2,9 @@ import psycopg2
 from typing import List, Dict, Optional
 from .logger_config import logger
 import os
+from dotenv import load_dotenv
+
+load_dotenv("../docker/.env")
 
 class FileProcessingManager:
     
