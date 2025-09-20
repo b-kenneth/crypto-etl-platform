@@ -9,7 +9,7 @@ from etl.logger_config import logger
 
 load_dotenv("../docker/.env")
 # DB_CONN = os.getenv("POSTGRES_CONN")
-DB_CONN = "postgresql://postgres:postgres@192.168.192.1:5433/postgres"
+DB_CONN = "postgresql://postgres:postgres@172.18.0.1:5433/postgres"
 
 def get_connection():
     conn = psycopg2.connect(DB_CONN)

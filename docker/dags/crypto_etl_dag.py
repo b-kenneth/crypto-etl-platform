@@ -1,12 +1,12 @@
 from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.operators.python import PythonOperator, BranchPythonOperator
-from airflow.operators.email import EmailOperator
 from airflow.operators.dummy import DummyOperator
 from airflow.utils.trigger_rule import TriggerRule
 import sys
 import os
-import etl.logger_config 
+
+import etl.logger_config
 
 # Add project root to Python path
 sys.path.append('/opt/airflow')
@@ -15,7 +15,7 @@ default_args = {
     'owner': 'data-team',
     'depends_on_past': False,
     'start_date': datetime(2025, 9, 19),
-    'email_on_failure': False,  # We'll handle notifications manually
+    'email_on_failure': False,
     'email_on_retry': False,
     'retries': 1,
     'retry_delay': timedelta(minutes=5),
@@ -25,7 +25,7 @@ dag = DAG(
     'crypto_etl_main',
     default_args=default_args,
     description='Robust crypto data ETL pipeline with quality checks and notifications',
-    schedule_interval=timedelta(minutes=15),  # Check every 15 minutes
+    schedule_interval=timedelta(minutes=15),
     catchup=False,
     max_active_runs=1,
 )
@@ -38,10 +38,7 @@ def check_new_files(**context):
     extractor = MinioExtractor()
     processor = FileProcessingManager()
     
-    # Get all files from MinIO
     all_files = extractor.list_files(prefix="raw-data/")
-    
-    # Filter to unprocessed files
     unprocessed_files = processor.get_unprocessed_files(all_files)
     
     if not unprocessed_files:
@@ -49,10 +46,7 @@ def check_new_files(**context):
         return 'no_new_files'
     
     print(f"Found {len(unprocessed_files)} new files to process")
-    
-    # Store file list in XCom for downstream tasks
     context['task_instance'].xcom_push(key='files_to_process', value=unprocessed_files)
-    
     return 'validate_files'
 
 def validate_file_structure(**context):
@@ -66,15 +60,16 @@ def validate_file_structure(**context):
     processor = FileProcessingManager()
     
     files_to_process = context['task_instance'].xcom_pull(key='files_to_process')
+    if not files_to_process:
+        print("No files to validate")
+        return "No files received for validation"
+    
     valid_files = []
     invalid_files = []
     
     for file_path in files_to_process:
         try:
-            # Mark as processing
-            processor.mark_file_processing(file_path, 0)  # We'll update size later
-            
-            # Read and validate structure
+            processor.mark_file_processing(file_path, 0)
             df = extractor.read_csv(file_path)
             is_valid, errors = checker.validate_file_structure(df)
             
@@ -100,16 +95,13 @@ def validate_file_structure(**context):
             processor.mark_file_failed(file_path, f"Structure validation error: {str(e)}")
             print(f"✗ Error validating {file_path}: {e}")
     
-    # Store results in XCom
     context['task_instance'].xcom_push(key='valid_files', value=valid_files)
     context['task_instance'].xcom_push(key='invalid_files', value=invalid_files)
     
     if not valid_files:
-        return 'handle_validation_failure'
-    elif invalid_files:
-        return 'partial_validation_success'
-    else:
-        return 'extract_data'
+        raise ValueError("No valid files found - all files failed validation")
+    
+    return f"Validated {len(valid_files)} valid files, {len(invalid_files)} invalid files"
 
 def extract_and_quality_check(**context):
     """Extract data and perform comprehensive quality checks"""
@@ -122,6 +114,9 @@ def extract_and_quality_check(**context):
     processor = FileProcessingManager()
     
     valid_files = context['task_instance'].xcom_pull(key='valid_files')
+    if not valid_files:
+        raise ValueError("No valid files received for processing")
+    
     processed_data = []
     quality_failures = []
     
@@ -129,16 +124,13 @@ def extract_and_quality_check(**context):
         file_path = file_info['file_path']
         
         try:
-            # Extract data
             df = extractor.read_csv(file_path)
-            
-            # Perform quality checks
             passed, issues, metrics = checker.validate_data_quality(df)
             
             if passed:
                 processed_data.append({
                     'file_path': file_path,
-                    'data': df.to_dict('records'),  # Convert to serializable format
+                    'data': df.to_dict('records'),
                     'metrics': metrics
                 })
                 print(f"✓ Quality check passed: {file_path} - {metrics}")
@@ -158,14 +150,13 @@ def extract_and_quality_check(**context):
             processor.mark_file_failed(file_path, f"Quality check error: {str(e)}")
             print(f"✗ Error processing {file_path}: {e}")
     
-    # Store results
     context['task_instance'].xcom_push(key='processed_data', value=processed_data)
     context['task_instance'].xcom_push(key='quality_failures', value=quality_failures)
     
     if not processed_data:
-        return 'handle_quality_failure'
-    else:
-        return 'transform_data'
+        raise ValueError("No files passed quality checks")
+    
+    return f"Quality checked {len(processed_data)} files successfully"
 
 def transform_and_load_data(**context):
     """Transform data and load to database"""
@@ -177,6 +168,9 @@ def transform_and_load_data(**context):
     processor = FileProcessingManager()
     processed_data = context['task_instance'].xcom_pull(key='processed_data')
     
+    if not processed_data:
+        raise ValueError("No processed data received for transform/load")
+    
     total_records = 0
     successful_files = []
     failed_files = []
@@ -185,16 +179,9 @@ def transform_and_load_data(**context):
         file_path = file_info['file_path']
         
         try:
-            # Convert back to DataFrame
             df = pd.DataFrame(file_info['data'])
-            
-            # Transform data
             transformed_df = transform_data(df)
-            
-            # Load to database
             upsert_prices(transformed_df)
-            
-            # Mark as completed
             processor.mark_file_completed(file_path, len(transformed_df))
             
             successful_files.append({
@@ -213,7 +200,6 @@ def transform_and_load_data(**context):
             })
             print(f"✗ Failed to process: {file_path} - {e}")
     
-    # Store final results
     context['task_instance'].xcom_push(key='successful_files', value=successful_files)
     context['task_instance'].xcom_push(key='failed_files', value=failed_files)
     context['task_instance'].xcom_push(key='total_records', value=total_records)
@@ -242,16 +228,8 @@ def send_success_notification(**context):
 
 def send_failure_notification(**context):
     """Send detailed failure notification"""
-    invalid_files = context['task_instance'].xcom_pull(key='invalid_files') or []
-    quality_failures = context['task_instance'].xcom_pull(key='quality_failures') or []
-    failed_files = context['task_instance'].xcom_pull(key='failed_files') or []
-    
     message = f"""
     ❌ ETL Pipeline Failed:
-    
-    Structure validation failures: {len(invalid_files)}
-    Quality check failures: {len(quality_failures)}
-    Transform/Load failures: {len(failed_files)}
     
     Execution Date: {context['execution_date']}
     DAG: {context['dag'].dag_id}
@@ -286,34 +264,21 @@ extract_quality_task = PythonOperator(
 )
 
 transform_load_task = PythonOperator(
-    task_id='transform__and_load_data',
+    task_id='transform_data',
     python_callable=transform_and_load_data,
     dag=dag,
 )
 
-# Success path
 success_notification_task = PythonOperator(
     task_id='send_success_notification',
     python_callable=send_success_notification,
     dag=dag,
 )
 
-# Failure handling tasks
-handle_validation_failure_task = PythonOperator(
-    task_id='handle_validation_failure',
+failure_notification_task = PythonOperator(
+    task_id='send_failure_notification',
     python_callable=send_failure_notification,
-    dag=dag,
-)
-
-partial_validation_task = PythonOperator(
-    task_id='partial_validation_success', 
-    python_callable=lambda: print("Some files failed validation, continuing with valid files"),
-    dag=dag,
-)
-
-handle_quality_failure_task = PythonOperator(
-    task_id='handle_quality_failure',
-    python_callable=send_failure_notification,
+    trigger_rule=TriggerRule.ONE_FAILED,
     dag=dag,
 )
 
@@ -323,26 +288,14 @@ end_task = DummyOperator(
     dag=dag,
 )
 
-# Define task dependencies
+# Define task dependencies - Linear flow with error handling
 start_task >> check_files_task
 
 check_files_task >> [no_files_task, validate_structure_task]
 
-validate_structure_task >> [
-    handle_validation_failure_task,
-    partial_validation_task,
-    extract_quality_task
-]
+validate_structure_task >> extract_quality_task >> transform_load_task >> success_notification_task
 
-partial_validation_task >> extract_quality_task
+[validate_structure_task, extract_quality_task, transform_load_task] >> failure_notification_task
 
-extract_quality_task >> [handle_quality_failure_task, transform_load_task]
+[no_files_task, success_notification_task, failure_notification_task] >> end_task
 
-transform_load_task >> success_notification_task
-
-[
-    no_files_task,
-    success_notification_task,
-    handle_validation_failure_task,
-    handle_quality_failure_task
-] >> end_task
