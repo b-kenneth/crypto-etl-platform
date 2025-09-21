@@ -144,3 +144,68 @@ connection to server at "localhost" (127.0.0.1), port 5433 failed: Connection re
 [2025-09-20 22:30:04,583] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
 [2025-09-20 22:30:04,606] INFO - crypto_etl - Found 8 CSV files
 [2025-09-20 22:30:04,616] INFO - crypto_etl - Found 0 unprocessed files out of 8 total
+[2025-09-20 22:35:07,320] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-20 22:35:07,339] INFO - crypto_etl - Found 9 CSV files
+[2025-09-20 22:35:07,348] INFO - crypto_etl - Found 1 unprocessed files out of 9 total
+[2025-09-20 22:35:11,151] INFO - crypto_etl - Marked raw-data/2025/09/20/23/crypto_data_20250920_23.csv as processing
+[2025-09-20 22:35:11,154] INFO - crypto_etl - Reading CSV raw-data/2025/09/20/23/crypto_data_20250920_23.csv from bucket crypto-data
+[2025-09-20 22:35:11,177] INFO - crypto_etl - Read CSV raw-data/2025/09/20/23/crypto_data_20250920_23.csv with 6 rows
+[2025-09-20 22:35:14,480] INFO - crypto_etl - Reading CSV raw-data/2025/09/20/23/crypto_data_20250920_23.csv from bucket crypto-data
+[2025-09-20 22:35:14,506] INFO - crypto_etl - Read CSV raw-data/2025/09/20/23/crypto_data_20250920_23.csv with 6 rows
+[2025-09-20 22:35:18,356] INFO - crypto_etl - Starting data transformation...
+[2025-09-20 22:35:18,363] INFO - crypto_etl - Adding derived metrics...
+[2025-09-20 22:35:18,398] INFO - crypto_etl - Data transformation complete
+[2025-09-20 22:35:18,415] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-20 22:35:18,426] INFO - crypto_etl - Marked raw-data/2025/09/20/23/crypto_data_20250920_23.csv as completed with 6 records
+[2025-09-21 11:12:58,651] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-21 11:12:58,695] INFO - crypto_etl - Found 9 CSV files
+[2025-09-21 11:12:58,721] INFO - crypto_etl - Found 0 unprocessed files out of 9 total
+[2025-09-21 11:13:05,683] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-21 11:13:05,699] INFO - crypto_etl - Found 10 CSV files
+[2025-09-21 11:13:05,707] INFO - crypto_etl - Found 1 unprocessed files out of 10 total
+[2025-09-21 11:13:08,987] INFO - crypto_etl - Marked raw-data/2025/09/21/10/crypto_data_20250921_10.csv as processing
+[2025-09-21 11:13:08,990] INFO - crypto_etl - Reading CSV raw-data/2025/09/21/10/crypto_data_20250921_10.csv from bucket crypto-data
+[2025-09-21 11:13:09,014] INFO - crypto_etl - Read CSV raw-data/2025/09/21/10/crypto_data_20250921_10.csv with 6 rows
+[2025-09-21 11:13:11,678] INFO - crypto_etl - Reading CSV raw-data/2025/09/21/10/crypto_data_20250921_10.csv from bucket crypto-data
+[2025-09-21 11:13:11,697] INFO - crypto_etl - Read CSV raw-data/2025/09/21/10/crypto_data_20250921_10.csv with 6 rows
+[2025-09-21 11:13:15,293] INFO - crypto_etl - Starting data transformation...
+[2025-09-21 11:13:15,299] INFO - crypto_etl - Adding derived metrics...
+[2025-09-21 11:13:15,336] INFO - crypto_etl - Data transformation complete
+[2025-09-21 11:13:15,350] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-21 11:13:15,358] INFO - crypto_etl - Marked raw-data/2025/09/21/10/crypto_data_20250921_10.csv as completed with 6 records
+[2025-09-21 11:15:05,827] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-21 11:15:05,849] INFO - crypto_etl - Found 10 CSV files
+[2025-09-21 11:15:05,857] INFO - crypto_etl - Found 0 unprocessed files out of 10 total
+[2025-09-21 11:30:04,037] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-21 11:30:04,052] INFO - crypto_etl - Found 10 CSV files
+[2025-09-21 11:30:04,060] INFO - crypto_etl - Found 0 unprocessed files out of 10 total
+[2025-09-21 11:46:07,552] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-21 11:46:07,572] INFO - crypto_etl - Found 10 CSV files
+[2025-09-21 11:51:11,481] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-21 11:51:11,498] INFO - crypto_etl - Found 10 CSV files
+[2025-09-21 12:00:04,076] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-21 12:00:04,095] INFO - crypto_etl - Found 11 CSV files
+[2025-09-21 12:05:07,817] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-21 12:05:07,854] INFO - crypto_etl - Found 11 CSV files
+[2025-09-21 12:15:04,773] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-21 12:15:04,802] INFO - crypto_etl - Found 11 CSV files
+[2025-09-21 12:40:35,012] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-21 12:40:35,047] INFO - crypto_etl - Found 1 CSV files
+[2025-09-21 12:42:57,071] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-21 12:42:57,090] INFO - crypto_etl - Found 1 CSV files
+[2025-09-21 12:44:17,331] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-21 12:44:17,353] INFO - crypto_etl - Found 1 CSV files
+[2025-09-21 12:44:17,365] INFO - crypto_etl - Found 1 unprocessed files out of 1 total
+[2025-09-21 12:44:22,353] INFO - crypto_etl - Marked raw-data/2025/09/21/11/crypto_data_20250921_11.csv as processing
+[2025-09-21 12:44:22,356] INFO - crypto_etl - Reading CSV raw-data/2025/09/21/11/crypto_data_20250921_11.csv from bucket crypto-data
+[2025-09-21 12:44:22,419] INFO - crypto_etl - Read CSV raw-data/2025/09/21/11/crypto_data_20250921_11.csv with 6 rows
+[2025-09-21 12:44:26,997] INFO - crypto_etl - Reading CSV raw-data/2025/09/21/11/crypto_data_20250921_11.csv from bucket crypto-data
+[2025-09-21 12:44:27,025] INFO - crypto_etl - Read CSV raw-data/2025/09/21/11/crypto_data_20250921_11.csv with 6 rows
+[2025-09-21 12:44:30,915] INFO - crypto_etl - Starting data transformation...
+[2025-09-21 12:44:30,923] INFO - crypto_etl - Adding derived metrics...
+[2025-09-21 12:44:31,030] INFO - crypto_etl - Data transformation complete
+[2025-09-21 12:44:31,053] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-21 12:44:31,069] INFO - crypto_etl - Marked raw-data/2025/09/21/11/crypto_data_20250921_11.csv as completed with 6 records
+[2025-09-21 12:45:05,454] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-21 12:45:05,475] INFO - crypto_etl - Found 1 CSV files
+[2025-09-21 12:45:05,488] INFO - crypto_etl - Found 0 unprocessed files out of 1 total
