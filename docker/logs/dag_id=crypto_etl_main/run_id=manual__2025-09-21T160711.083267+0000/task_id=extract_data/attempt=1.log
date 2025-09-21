@@ -1,0 +1,18 @@
+[2025-09-21T16:07:20.960+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: crypto_etl_main.extract_data manual__2025-09-21T16:07:11.083267+00:00 [queued]>
+[2025-09-21T16:07:20.975+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: crypto_etl_main.extract_data manual__2025-09-21T16:07:11.083267+00:00 [queued]>
+[2025-09-21T16:07:20.976+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-09-21T16:07:21.001+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): extract_data> on 2025-09-21 16:07:11.083267+00:00
+[2025-09-21T16:07:21.009+0000] {standard_task_runner.py:60} INFO - Started process 523 to run task
+[2025-09-21T16:07:21.015+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'crypto_etl_main', 'extract_data', 'manual__2025-09-21T16:07:11.083267+00:00', '--job-id', '40', '--raw', '--subdir', 'DAGS_FOLDER/crypto_etl_dag.py', '--cfg-path', '/tmp/tmp33o2tkep']
+[2025-09-21T16:07:21.020+0000] {standard_task_runner.py:88} INFO - Job 40: Subtask extract_data
+[2025-09-21T16:07:21.144+0000] {task_command.py:423} INFO - Running <TaskInstance: crypto_etl_main.extract_data manual__2025-09-21T16:07:11.083267+00:00 [running]> on host e55d1e17d5c4
+[2025-09-21T16:07:21.377+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-team' AIRFLOW_CTX_DAG_ID='crypto_etl_main' AIRFLOW_CTX_TASK_ID='extract_data' AIRFLOW_CTX_EXECUTION_DATE='2025-09-21T16:07:11.083267+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-21T16:07:11.083267+00:00'
+[2025-09-21T16:07:21.587+0000] {log.py:232} WARNING - [2025-09-21 16:07:21,585] INFO - crypto_etl - Reading CSV raw-data/2025/09/21/16/crypto_data_20250921_16.csv from bucket crypto-data
+[2025-09-21T16:07:21.585+0000] {extract.py:37} INFO - Reading CSV raw-data/2025/09/21/16/crypto_data_20250921_16.csv from bucket crypto-data
+[2025-09-21T16:07:21.647+0000] {log.py:232} WARNING - [2025-09-21 16:07:21,646] INFO - crypto_etl - Read CSV raw-data/2025/09/21/16/crypto_data_20250921_16.csv with 6 rows
+[2025-09-21T16:07:21.646+0000] {extract.py:44} INFO - Read CSV raw-data/2025/09/21/16/crypto_data_20250921_16.csv with 6 rows
+[2025-09-21T16:07:21.675+0000] {logging_mixin.py:188} INFO - ✓ Quality check passed: raw-data/2025/09/21/16/crypto_data_20250921_16.csv - {'total_records': 6, 'unique_symbols': 6, 'date_range': {'start': '2025-09-21T16:06:42.762843+00:00', 'end': '2025-09-21T16:06:42.762843+00:00'}, 'null_percentage': 0.0}
+[2025-09-21T16:07:21.736+0000] {python.py:201} INFO - Done. Returned value was: Quality checked 1 files successfully
+[2025-09-21T16:07:21.775+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=crypto_etl_main, task_id=extract_data, execution_date=20250921T160711, start_date=20250921T160720, end_date=20250921T160721
+[2025-09-21T16:07:21.830+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-09-21T16:07:21.879+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

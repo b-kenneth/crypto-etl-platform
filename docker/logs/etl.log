@@ -209,3 +209,66 @@ connection to server at "localhost" (127.0.0.1), port 5433 failed: Connection re
 [2025-09-21 12:45:05,454] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
 [2025-09-21 12:45:05,475] INFO - crypto_etl - Found 1 CSV files
 [2025-09-21 12:45:05,488] INFO - crypto_etl - Found 0 unprocessed files out of 1 total
+[2025-09-21 15:01:34,127] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-21 15:01:34,146] ERROR - crypto_etl - Failed to list objects: S3 operation failed; code: SignatureDoesNotMatch, message: The request signature we calculated does not match the signature you provided. Check your key and signing method., resource: /crypto-data, request_id: 18675452CE96172B, host_id: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8, bucket_name: crypto-data
+[2025-09-21 15:01:34,168] INFO - crypto_etl - Found 0 unprocessed files out of 0 total
+[2025-09-21 15:04:19,403] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-21 15:04:19,414] ERROR - crypto_etl - Failed to list objects: S3 operation failed; code: SignatureDoesNotMatch, message: The request signature we calculated does not match the signature you provided. Check your key and signing method., resource: /crypto-data, request_id: 186754794972CA85, host_id: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8, bucket_name: crypto-data
+[2025-09-21 15:04:19,424] INFO - crypto_etl - Found 0 unprocessed files out of 0 total
+[2025-09-21 15:05:19,079] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-21 15:05:19,087] ERROR - crypto_etl - Failed to list objects: S3 operation failed; code: SignatureDoesNotMatch, message: The request signature we calculated does not match the signature you provided. Check your key and signing method., resource: /crypto-data, request_id: 186754872E513415, host_id: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8, bucket_name: crypto-data
+[2025-09-21 15:05:19,097] INFO - crypto_etl - Found 0 unprocessed files out of 0 total
+[2025-09-21 15:13:23,495] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-21 15:13:23,507] ERROR - crypto_etl - Failed to list objects: S3 operation failed; code: SignatureDoesNotMatch, message: The request signature we calculated does not match the signature you provided. Check your key and signing method., resource: /crypto-data, request_id: 186754F7F7E48177, host_id: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8, bucket_name: crypto-data
+[2025-09-21 15:13:23,520] INFO - crypto_etl - Found 0 unprocessed files out of 0 total
+[2025-09-21 15:15:04,028] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-21 15:15:04,047] ERROR - crypto_etl - Failed to list objects: S3 operation failed; code: SignatureDoesNotMatch, message: The request signature we calculated does not match the signature you provided. Check your key and signing method., resource: /crypto-data, request_id: 1867550F6047B2C7, host_id: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8, bucket_name: crypto-data
+[2025-09-21 15:15:04,057] INFO - crypto_etl - Found 0 unprocessed files out of 0 total
+[2025-09-21 15:27:16,344] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-21 15:27:16,353] ERROR - crypto_etl - Failed to list objects: S3 operation failed; code: SignatureDoesNotMatch, message: The request signature we calculated does not match the signature you provided. Check your key and signing method., resource: /crypto-data, request_id: 186755B9E1749DD4, host_id: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8, bucket_name: crypto-data
+[2025-09-21 15:27:16,363] INFO - crypto_etl - Found 0 unprocessed files out of 0 total
+[2025-09-21 15:27:42,277] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-21 15:27:42,286] ERROR - crypto_etl - Failed to list objects: S3 operation failed; code: SignatureDoesNotMatch, message: The request signature we calculated does not match the signature you provided. Check your key and signing method., resource: /crypto-data, request_id: 186755BFEB280213, host_id: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8, bucket_name: crypto-data
+[2025-09-21 15:27:42,295] INFO - crypto_etl - Found 0 unprocessed files out of 0 total
+[2025-09-21 15:30:04,404] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-21 15:30:04,412] ERROR - crypto_etl - Failed to list objects: S3 operation failed; code: SignatureDoesNotMatch, message: The request signature we calculated does not match the signature you provided. Check your key and signing method., resource: /crypto-data, request_id: 186755E102910915, host_id: dd9025bab4ad464b049177c95eb6ebf374d3b3fd1af9251148b658df7ac2e3e8, bucket_name: crypto-data
+[2025-09-21 15:30:04,422] INFO - crypto_etl - Found 0 unprocessed files out of 0 total
+[2025-09-21 15:45:05,900] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-21 15:45:05,915] INFO - crypto_etl - Found 3 CSV files
+[2025-09-21 15:45:05,923] INFO - crypto_etl - Found 2 unprocessed files out of 3 total
+[2025-09-21 15:45:08,916] INFO - crypto_etl - Marked raw-data/2025/09/21/14/crypto_data_20250921_14.csv as processing
+[2025-09-21 15:45:08,919] INFO - crypto_etl - Reading CSV raw-data/2025/09/21/14/crypto_data_20250921_14.csv from bucket crypto-data
+[2025-09-21 15:45:08,951] INFO - crypto_etl - Read CSV raw-data/2025/09/21/14/crypto_data_20250921_14.csv with 6 rows
+[2025-09-21 15:45:08,962] INFO - crypto_etl - Marked raw-data/2025/09/21/15/crypto_data_20250921_15.csv as processing
+[2025-09-21 15:45:08,964] INFO - crypto_etl - Reading CSV raw-data/2025/09/21/15/crypto_data_20250921_15.csv from bucket crypto-data
+[2025-09-21 15:45:08,972] INFO - crypto_etl - Read CSV raw-data/2025/09/21/15/crypto_data_20250921_15.csv with 6 rows
+[2025-09-21 15:45:12,189] INFO - crypto_etl - Reading CSV raw-data/2025/09/21/14/crypto_data_20250921_14.csv from bucket crypto-data
+[2025-09-21 15:45:12,210] INFO - crypto_etl - Read CSV raw-data/2025/09/21/14/crypto_data_20250921_14.csv with 6 rows
+[2025-09-21 15:45:12,250] INFO - crypto_etl - Reading CSV raw-data/2025/09/21/15/crypto_data_20250921_15.csv from bucket crypto-data
+[2025-09-21 15:45:12,259] INFO - crypto_etl - Read CSV raw-data/2025/09/21/15/crypto_data_20250921_15.csv with 6 rows
+[2025-09-21 15:45:15,478] INFO - crypto_etl - Starting data transformation...
+[2025-09-21 15:45:15,489] INFO - crypto_etl - Adding derived metrics...
+[2025-09-21 15:45:15,550] INFO - crypto_etl - Data transformation complete
+[2025-09-21 15:45:15,569] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-21 15:45:15,581] INFO - crypto_etl - Marked raw-data/2025/09/21/14/crypto_data_20250921_14.csv as completed with 6 records
+[2025-09-21 15:45:15,585] INFO - crypto_etl - Starting data transformation...
+[2025-09-21 15:45:15,588] INFO - crypto_etl - Adding derived metrics...
+[2025-09-21 15:45:15,604] INFO - crypto_etl - Data transformation complete
+[2025-09-21 15:45:15,615] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-21 15:45:15,626] INFO - crypto_etl - Marked raw-data/2025/09/21/15/crypto_data_20250921_15.csv as completed with 6 records
+[2025-09-21 16:00:03,776] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-21 16:00:03,795] INFO - crypto_etl - Found 3 CSV files
+[2025-09-21 16:00:03,804] INFO - crypto_etl - Found 0 unprocessed files out of 3 total
+[2025-09-21 16:07:15,219] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-21 16:07:15,242] INFO - crypto_etl - Found 4 CSV files
+[2025-09-21 16:07:15,265] INFO - crypto_etl - Found 1 unprocessed files out of 4 total
+[2025-09-21 16:07:18,195] INFO - crypto_etl - Marked raw-data/2025/09/21/16/crypto_data_20250921_16.csv as processing
+[2025-09-21 16:07:18,198] INFO - crypto_etl - Reading CSV raw-data/2025/09/21/16/crypto_data_20250921_16.csv from bucket crypto-data
+[2025-09-21 16:07:18,229] INFO - crypto_etl - Read CSV raw-data/2025/09/21/16/crypto_data_20250921_16.csv with 6 rows
+[2025-09-21 16:07:21,585] INFO - crypto_etl - Reading CSV raw-data/2025/09/21/16/crypto_data_20250921_16.csv from bucket crypto-data
+[2025-09-21 16:07:21,646] INFO - crypto_etl - Read CSV raw-data/2025/09/21/16/crypto_data_20250921_16.csv with 6 rows
+[2025-09-21 16:07:24,391] INFO - crypto_etl - Starting data transformation...
+[2025-09-21 16:07:24,398] INFO - crypto_etl - Adding derived metrics...
+[2025-09-21 16:07:24,444] INFO - crypto_etl - Data transformation complete
+[2025-09-21 16:07:24,463] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-21 16:07:24,481] INFO - crypto_etl - Marked raw-data/2025/09/21/16/crypto_data_20250921_16.csv as completed with 6 records

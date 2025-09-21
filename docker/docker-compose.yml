@@ -19,7 +19,7 @@ x-airflow-common:
     _PIP_ADDITIONAL_REQUIREMENTS: minio pandas dotenv python-dotenv psycopg2-binary
     
     MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY}
-    MINIO_SECRET_KEY: $(MINIO_SECRET_KEY)
+    MINIO_SECRET_KEY: ${MINIO_SECRET_KEY}
     MB_DB_PASS: ${MB_DB_PASS}
     MINIO_ENDPOINT: ${MINIO_ENDPOINT}
     MINIO_BUCKET: ${MINIO_BUCKET}
@@ -69,6 +69,8 @@ services:
     command: webserver
     ports:
       - "8080:8080"
+    env_file:
+      - .env
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
       interval: 30s
@@ -84,6 +86,8 @@ services:
   airflow-scheduler:
     <<: *airflow-common
     command: scheduler
+    env_file:
+      - .env
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8974/health"]
       interval: 30s
@@ -99,6 +103,8 @@ services:
   airflow-worker:
     <<: *airflow-common
     command: celery worker
+    env_file:
+      - .env
     healthcheck:
       # yamllint disable rule:line-length
       test:
@@ -120,6 +126,8 @@ services:
   airflow-triggerer:
     <<: *airflow-common
     command: triggerer
+    env_file:
+      - .env
     healthcheck:
       test: ["CMD-SHELL", 'airflow jobs check --job-type TriggererJob --hostname "$${HOSTNAME}"']
       interval: 30s
