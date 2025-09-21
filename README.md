@@ -1,20 +1,15 @@
 # **Section 1: Project Overview & Architecture**
 
 ## **🚀 Crypto Data Platform**
-### **Real-time Cryptocurrency Analytics & ETL Pipeline**
-
-A production-grade data platform that automates cryptocurrency market data collection, processing, and visualization with enterprise-level orchestration and monitoring capabilities.
-
----
 
 ## **📊 Project Overview**
 
-The Crypto Data Platform is a comprehensive end-to-end data engineering solution designed to solve critical challenges in cryptocurrency market analysis. This platform addresses the need for reliable, real-time crypto market intelligence by implementing a robust ETL pipeline that ensures data quality, consistency, and availability for business intelligence applications.
+The Crypto Data Platform is a comprehensive end-to-end data engineering solution designed to solve critical challenges in cryptocurrency market analysis. This platform addresses the need for reliable, crypto market intelligence by implementing a robust ETL pipeline that ensures data quality, consistency, and availability for business intelligence applications.
 
 ### **What This Platform Does:**
-- **Automated Data Generation**: Simulates realistic cryptocurrency market data (OHLCV) for 6 major coins
+- **Automated Data Generation**: Simulates realistic cryptocurrency market data (OHLCV) for 6 major coins.
 - **Intelligent Data Processing**: Extracts, transforms, and loads crypto data with comprehensive quality validation  
-- **Real-time Analytics**: Provides live dashboards and visualizations for market analysis
+- **Analytics**: Provides dashboards and visualizations for market analysis
 - **Enterprise Orchestration**: Uses Apache Airflow for workflow management with sophisticated error handling
 - **Scalable Storage**: Implements object storage (MinIO) and analytical database (PostgreSQL) architecture
 
@@ -37,7 +32,7 @@ The Crypto Data Platform is a comprehensive end-to-end data engineering solution
 - ✅ **File Processing State Management** - Tracks processed files to prevent reprocessing
 
 ### **Orchestration & Monitoring**
-- ✅ **Apache Airflow Integration** - Professional workflow orchestration with branching logic
+- ✅ **Apache Airflow Integration** - Workflow orchestration with branching logic
 - ✅ **Structured Logging** - Centralized logs with configurable levels and trace IDs
 - ✅ **Real-time Monitoring** - Pipeline health metrics and execution summaries
 - ✅ **Configurable Scheduling** - Hourly data generation, 15-minute ETL processing
@@ -52,40 +47,7 @@ The Crypto Data Platform is a comprehensive end-to-end data engineering solution
 ***
 
 ## **🏗️ Architecture Overview**
-
-```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Data Source   │    │  Orchestration  │    │   Storage       │
-│                 │    │                 │    │                 │
-│ ┌─────────────┐ │    │ ┌─────────────┐ │    │ ┌─────────────┐ │
-│ │Data Generator│ │ ──▶│ │  Airflow    │ │ ──▶│ │   MinIO     │ │
-│ │   (Hourly)   │ │    │ │  Scheduler  │ │    │ │ Object Store│ │
-│ └─────────────┘ │    │ └─────────────┘ │    │ └─────────────┘ │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-                                 │                       │
-                       ┌─────────▼─────────┐            │
-                       │   ETL Pipeline    │            │
-                       │                   │            │
-                       │ ┌───────────────┐ │            │
-                       │ │   Extract     │ │ ───────────┘
-                       │ │   Transform   │ │            
-                       │ │   Load        │ │            
-                       │ └───────────────┘ │            
-                       └─────────┬─────────┘            
-                                 │                      
-                       ┌─────────▼─────────┐            
-                       │   Analytics       │            
-                       │                   │            
-                       │ ┌───────────────┐ │            
-                       │ │ PostgreSQL    │ │            
-                       │ │   Database    │ │            
-                       │ └───────────────┘ │            
-                       │ ┌───────────────┐ │            
-                       │ │   Metabase    │ │            
-                       │ │  Dashboard    │ │            
-                       │ └───────────────┘ │            
-                       └───────────────────┘            
-```
+![archiecture_diagram](assets/min.drawio.png)
 
 ### **Data Flow Architecture**
 1. **Generation Layer**: Automated crypto data simulation with realistic OHLCV patterns
@@ -120,55 +82,10 @@ The Crypto Data Platform is a comprehensive end-to-end data engineering solution
 - **Environment Variables** - Configuration management
 - **Health Checks** - Container and service monitoring
 
-***
-
-## **🎯 Key Design Decisions & Rationale**
-
-### **Why Apache Airflow?**
-- **Enterprise-grade orchestration** with DAG-based workflow definition
-- **Robust error handling** with retry mechanisms and branching logic
-- **Scalable execution** supporting parallel processing and resource management
-- **Extensive monitoring** with built-in UI and logging capabilities
-- **Alternative considered**: Prefect, but Airflow provides better enterprise features
-
-### **Why MinIO for Object Storage?**
-- **S3-compatible API** enables easy migration to AWS S3 if needed
-- **Cost-effective** on-premises object storage solution
-- **Scalable architecture** supporting petabyte-scale data
-- **Integration simplicity** with existing Python data tools
-- **Alternative considered**: Direct file system, but lacks scalability and cloud compatibility
-
-### **Why PostgreSQL for Analytics?**
-- **OLAP optimization** with advanced query planning and indexing
-- **JSON support** for semi-structured data processing
-- **Window functions** essential for time-series analysis
-- **Mature ecosystem** with excellent Python integration
-- **Alternative considered**: ClickHouse, but PostgreSQL provides better general-purpose analytics
-
-### **Why Metabase for Visualization?**
-- **Self-service analytics** empowering business users
-- **SQL-based querying** with visual query builder
-- **Dashboard sharing** and collaborative features
-- **Cost-effective** open-source solution with enterprise features
-- **Alternative considered**: Grafana, but Metabase provides better business intelligence features
-
-### **Containerized Architecture Benefits**
-- **Environment consistency** across development, staging, and production
-- **Service isolation** improving security and resource management
-- **Simplified deployment** with infrastructure-as-code principles
-- **Horizontal scalability** supporting microservices architecture
-
-
 
 # **Section 2: Getting Started**
 
 ## **📋 Prerequisites**
-
-### **System Requirements**
-- **Operating System**: Linux, macOS, or Windows with WSL2
-- **Memory**: Minimum 8GB RAM (16GB recommended for optimal performance)
-- **Storage**: At least 20GB free disk space
-- **Network**: Stable internet connection for Docker image downloads
 
 ### **Software Dependencies**
 - **Docker** (version 20.10+) and **Docker Compose** (version 2.0+)
@@ -176,63 +93,18 @@ The Crypto Data Platform is a comprehensive end-to-end data engineering solution
 - **Python 3.8+** (for development and utility scripts)
 - **psql** client (optional, for direct database access)
 
-### **Hardware Recommendations**
-```bash
-# Minimum Configuration
-CPU: 2+ cores
-RAM: 8GB
-Storage: 20GB SSD
-
-# Recommended Configuration  
-CPU: 4+ cores
-RAM: 16GB
-Storage: 50GB SSD
-Network: 100+ Mbps
-```
-
-***
 
 ## **⚡ Environment Setup**
 
 ### **1. Repository Clone & Navigation**
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/crypto-data-platform.git
+git https://github.com/b-kenneth/crypto-etl-platform/tree/main
 cd crypto-data-platform
-
-# Verify repository structure
-tree -L 2
 ```
 
 ### **2. Environment Configuration**
-Create environment configuration files for different deployment scenarios:
 
-#### **Development Environment (.env.development)**
-```bash
-# MinIO Configuration (Object Storage)
-MINIO_ACCESS_KEY=minio-access-dev
-MINIO_SECRET_KEY=minio-secret-dev-key-change-in-production
-MINIO_ENDPOINT=localhost:9000
-MINIO_BUCKET=crypto-data-dev
-
-# PostgreSQL Configuration (Analytics Database)
-POSTGRES_USER=postgres
-POSTGRES_PASSWORD=crypto-analytics-pwd-change-in-production
-POSTGRES_DB=crypto_analytics_dev
-POSTGRES_CONN=postgresql://postgres:crypto-analytics-pwd-change-in-production@localhost:5433/crypto_analytics_dev
-
-# Airflow Configuration
-AIRFLOW_UID=50000
-AIRFLOW_GID=0
-AIRFLOW_PROJ_DIR=./
-
-# Application Settings
-PYTHONPATH=/opt/airflow
-LOG_LEVEL=INFO
-ENVIRONMENT=development
-```
-
-#### **Production Environment (.env.production)**
 ```bash
 # Production MinIO Configuration
 MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}  # Set via secrets management
@@ -241,7 +113,7 @@ MINIO_ENDPOINT=minio:9000
 MINIO_BUCKET=crypto-data-prod
 
 # Production PostgreSQL Configuration  
-POSTGRES_USER=crypto_analytics_user
+POSTGRES_USER=******
 POSTGRES_PASSWORD=${DB_PASSWORD}  # Set via secrets management
 POSTGRES_DB=crypto_analytics
 POSTGRES_CONN=postgresql://crypto_analytics_user:${DB_PASSWORD}@postgres-analytics:5432/crypto_analytics
@@ -257,34 +129,11 @@ LOG_LEVEL=WARNING
 ENVIRONMENT=production
 ```
 
-### **3. Docker Network & Volume Preparation**
-```bash
-# Create Docker network for service communication
-docker network create crypto-platform-network
-
-# Create persistent volumes for data storage
-docker volume create crypto-postgres-data
-docker volume create crypto-minio-data
-docker volume create crypto-airflow-logs
-```
-
 ***
 
 ## **🚀 Installation & Configuration**
 
-### **1. Environment File Setup**
-```bash
-# Copy development environment template
-cp .env.development .env
-
-# Edit environment variables (use your preferred editor)
-nano .env
-
-# Validate environment configuration
-python scripts/validate_env.py
-```
-
-### **2. Docker Services Initialization**
+### **1. Docker Services Initialization**
 ```bash
 # Build and start all services
 docker-compose up -d
@@ -296,7 +145,7 @@ docker-compose ps
 docker-compose logs -f
 ```
 
-### **3. Database Schema Initialization**
+### **2. Database Schema Initialization**
 ```bash
 # Wait for PostgreSQL to be fully ready
 while ! docker-compose exec postgres-analytics pg_isready; do
@@ -341,21 +190,6 @@ CREATE INDEX IF NOT EXISTS idx_processed_files_status ON processed_files(status)
 "
 ```
 
-### **4. MinIO Bucket Configuration**
-```bash
-# Access MinIO container
-docker-compose exec minio mc alias set local http://localhost:9000 minio-access-dev minio-secret-dev-key-change-in-production
-
-# Create required bucket
-docker-compose exec minio mc mb local/crypto-data-dev
-
-# Set bucket policy (public read for development)
-docker-compose exec minio mc anonymous set public local/crypto-data-dev
-
-# Verify bucket creation
-docker-compose exec minio mc ls local/
-```
-
 ***
 
 ## **🎯 Quick Start Guide**
@@ -378,8 +212,8 @@ docker-compose exec postgres-analytics pg_isready -U postgres
 
 #### **Airflow Web UI**
 - **URL**: http://localhost:8080
-- **Username**: `admin`
-- **Password**: `admin`
+- **Username**: ******
+- **Password**: ******
 - **Purpose**: Monitor and manage ETL pipelines
 
 #### **Metabase Analytics Dashboard**
@@ -389,26 +223,12 @@ docker-compose exec postgres-analytics pg_isready -U postgres
 
 #### **MinIO Object Storage Console**
 - **URL**: http://localhost:9001
-- **Username**: `minio-access-dev`
-- **Password**: `minio-secret-dev-key-change-in-production`
+- **Username**: ******
+- **Password**: ******
 - **Purpose**: Monitor object storage and data lake
 
-### **3. Initial Data Population**
-```bash
-# Run backfill utility to populate historical data
-python utils/backfill_data.py --hours 72
 
-# Verify data upload to MinIO
-docker-compose exec minio mc ls local/crypto-data-dev/raw-data/ --recursive
-
-# Enable and trigger data generator DAG in Airflow UI
-# Navigate to: http://localhost:8080/admin/airflow/graph?dag_id=crypto_data_generator
-
-# Enable and trigger main ETL DAG
-# Navigate to: http://localhost:8080/admin/airflow/graph?dag_id=crypto_etl_main
-```
-
-### **4. Verify End-to-End Data Flow**
+### **3. Verify End-to-End Data Flow**
 ```bash
 # Check processed data in PostgreSQL
 docker-compose exec postgres-analytics psql -U postgres -d crypto_analytics_dev -c "
@@ -443,46 +263,11 @@ python3 -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 # Install development dependencies
-pip install -r requirements-dev.txt
-
-# Install pre-commit hooks for code quality
-pre-commit install
+pip install -r requirements.txt
 
 # Run tests to verify setup
 python -m pytest tests/ -v
 ```
-
-### **IDE Configuration (VS Code)**
-```json
-// .vscode/settings.json
-{
-    "python.defaultInterpreterPath": "./venv/bin/python",
-    "python.linting.enabled": true,
-    "python.linting.flake8Enabled": true,
-    "python.formatting.provider": "black",
-    "python.sortImports.args": ["--profile", "black"],
-    "files.exclude": {
-        "**/__pycache__": true,
-        "**/.pytest_cache": true,
-        "**/logs": true
-    }
-}
-```
-
-### **Environment Validation Script**
-```bash
-# Validate complete environment setup
-python scripts/validate_setup.py
-
-# Expected output:
-# ✅ Docker services running
-# ✅ Database connectivity verified  
-# ✅ MinIO storage accessible
-# ✅ Airflow DAGs loaded successfully
-# ✅ Metabase dashboard accessible
-# 🎉 Environment setup complete!
-```
-
 
 
 # **Section 3: Data Pipeline & ETL**
@@ -510,20 +295,6 @@ Data Generation → Object Storage → Quality Validation → Transformation →
 **Schedule**: Hourly execution via Airflow DAG  
 **Output**: OHLCV data for 6 major cryptocurrencies (BTC, ETH, ADA, DOT, BNB, SOL)
 
-```python
-# Data Structure Generated
-{
-    "timestamp": "2025-09-21T10:00:00",
-    "symbol": "BTC",
-    "open": 30000.00,
-    "high": 30500.00,
-    "low": 29900.00,
-    "close": 30400.00,
-    "volume": 1000.00,
-    "market_cap": 600000000.00,
-    "volatility": 0.02
-}
-```
 
 **Design Rationale**: 
 - **Realistic Market Simulation**: Uses statistical models to generate data with authentic volatility patterns
@@ -554,19 +325,15 @@ raw-data/
 - **Cost Optimization**: Object storage provides economical long-term data retention
 
 ### **3. ETL Processing Layer**
+
+![airflow_dag1](assets/Screenshot%202025-09-20%20220521.png)
+![airflow_dag1](assets/Screenshot%202025-09-21%20160200.png)
 **Orchestration**: Apache Airflow with sophisticated DAG workflows  
 **Processing Model**: Batch processing with micro-batch capabilities  
 **Error Handling**: Comprehensive retry logic and graceful failure recovery  
 **Monitoring**: Real-time pipeline health monitoring with detailed logging
 
 #### **Extract Phase**
-```python
-# File Discovery & State Management
-unprocessed_files = processor.get_unprocessed_files(all_files)
-for file_path in unprocessed_files:
-    processor.mark_file_processing(file_path, file_size)
-    raw_data = extractor.read_csv(file_path)
-```
 
 **Key Features**:
 - **Idempotent Processing**: Tracks processed files to prevent duplicate processing
@@ -574,20 +341,6 @@ for file_path in unprocessed_files:
 - **State Recovery**: Maintains processing state across pipeline restarts
 
 #### **Transform Phase**
-```python
-# Data Quality Validation & Business Logic
-def transform_data(df):
-    # Validate data structure and quality
-    if not validate_data(df):
-        raise ValueError("Data validation failed")
-    
-    # Add derived metrics
-    df['price_change_pct'] = df['close'].pct_change().fillna(0)
-    df['rolling_volatility'] = df.groupby('symbol')['close'].rolling(3).std()
-    df['moving_avg'] = df.groupby('symbol')['close'].rolling(3).mean()
-    
-    return df
-```
 
 **Business Logic Applied**:
 - **Price Change Percentage**: Calculates hourly price movements for trend analysis
@@ -596,19 +349,6 @@ def transform_data(df):
 - **Data Enrichment**: Additional calculated fields for analytical insights
 
 #### **Load Phase**
-```python
-# Upsert Strategy for Data Consistency
-def upsert_prices(df):
-    sql = """
-    INSERT INTO processed_prices (timestamp, symbol, open, high, low, close, volume, 
-                                 market_cap, volatility, price_change_pct, rolling_volatility, moving_avg)
-    VALUES %s
-    ON CONFLICT (timestamp, symbol) DO UPDATE SET
-      open = EXCLUDED.open,
-      high = EXCLUDED.high,
-      -- ... additional fields
-    """
-```
 
 **Load Strategy Benefits**:
 - **Upsert Logic**: Handles duplicate data gracefully with ON CONFLICT resolution
@@ -752,7 +492,7 @@ The Crypto Data Platform is designed for autonomous operation with minimal manua
 **Airflow Web Interface (Pipeline Management)**
 ```bash
 # Access URL: http://localhost:8080
-# Credentials: admin / admin
+# Credentials: ****** / ******
 
 # Key Operations:
 1. Monitor DAG execution status
@@ -765,7 +505,6 @@ The Crypto Data Platform is designed for autonomous operation with minimal manua
 **Primary DAGs Overview:**
 - **`crypto_data_generator`**: Runs hourly, generates new market data
 - **`crypto_etl_main`**: Runs every 15 minutes, processes unprocessed files
-- **Status Colors**: Green (Success), Red (Failed), Yellow (Running), Gray (Pending)
 
 **Metabase Analytics Interface (Business Intelligence)**
 ```bash
@@ -783,7 +522,7 @@ The Crypto Data Platform is designed for autonomous operation with minimal manua
 **MinIO Storage Console (Data Lake Management)**
 ```bash
 # Access URL: http://localhost:9001
-# Credentials: minio-access-dev / minio-secret-dev-key-change-in-production
+# Credentials: ****** / ******
 
 # Key Operations:
 1. Browse raw data files
@@ -792,35 +531,29 @@ The Crypto Data Platform is designed for autonomous operation with minimal manua
 4. Download/upload files manually
 5. View access logs
 ```
-
+![minio](assets/Screenshot%202025-09-18%20220809.png)
 ***
 
 ## **📊 Dashboard & Visualization**
 
 ### **Pre-Built Analytics Dashboards**
 
+![dashboard](assets/Screenshot%202025-09-21%20173123.png)
+
 #### **Executive Overview Dashboard**
 **Purpose**: High-level business metrics for stakeholders  
 **Key Visualizations**:
 
 ```sql
--- Market Dominance Pie Chart
+-- Market Dominance
 SELECT 
     symbol as "Cryptocurrency",
     AVG(market_cap) as "Market Cap (USD)"
 FROM processed_prices 
 WHERE timestamp >= NOW() - INTERVAL '24 hours'
 GROUP BY symbol
-ORDER BY AVG(market_cap) DESC;
+ORDER BY AVG(market_cap) DESC
 
--- Total Market Overview Cards
-SELECT 
-    COUNT(DISTINCT symbol) as "Active Cryptocurrencies",
-    SUM(market_cap) as "Total Market Cap", 
-    AVG(volatility) as "Average Market Volatility",
-    MAX(timestamp) as "Last Data Update"
-FROM processed_prices 
-WHERE timestamp >= NOW() - INTERVAL '1 hour';
 ```
 
 #### **Technical Analysis Dashboard**
@@ -828,26 +561,34 @@ WHERE timestamp >= NOW() - INTERVAL '1 hour';
 **Key Visualizations**:
 
 ```sql
--- Multi-Coin Price Trends (Line Chart)
+--24 hr average volatility
 SELECT 
-    timestamp,
     symbol,
-    close as "Price (USD)",
-    moving_avg as "3-Period Moving Average"
-FROM processed_prices 
-WHERE timestamp >= NOW() - INTERVAL '48 hours'
-ORDER BY timestamp, symbol;
-
--- Volatility Comparison (Bar Chart)
-SELECT 
-    symbol as "Cryptocurrency",
-    AVG(volatility) as "Average Volatility",
-    AVG(rolling_volatility) as "Rolling Volatility (3-period)"
+    AVG(volatility) as avg_volatility
 FROM processed_prices 
 WHERE timestamp >= NOW() - INTERVAL '24 hours'
 GROUP BY symbol
-ORDER BY AVG(volatility) DESC;
+ORDER BY avg_volatility DESC
+
+--% Price Change Per Day
+SELECT 
+    symbol,
+    DATE_TRUNC('hour', timestamp) as hour,
+    price_change_pct
+FROM processed_prices 
+WHERE timestamp >= NOW() - INTERVAL '24 hours'
+
+--24 Hr Trading volume
+SELECT 
+    DATE_TRUNC('hour', timestamp) as hour,
+    symbol,
+    SUM(volume) as hourly_volume
+FROM processed_prices 
+WHERE timestamp >= NOW() - INTERVAL '24 hours'
+GROUP BY hour, symbol
+ORDER BY hour
 ```
+
 
 #### **Operational Monitoring Dashboard**
 **Purpose**: Pipeline health and data quality monitoring  
@@ -872,43 +613,6 @@ GROUP BY symbol
 ORDER BY MAX(timestamp) DESC;
 ```
 
-### **Custom Dashboard Creation Guide**
-
-#### **Step 1: Connect Data Source**
-```bash
-1. Navigate to Metabase Admin → Databases
-2. Click "Add Database"
-3. Select PostgreSQL
-4. Configure connection:
-   - Host: postgres-analytics (or localhost if external)
-   - Port: 5432 (or 5433 if external)
-   - Database: crypto_analytics_dev
-   - Username: postgres
-   - Password: [your-password]
-```
-
-#### **Step 2: Create Questions (Queries)**
-```sql
--- Example: Top Performing Cryptocurrencies (Last 24h)
-SELECT 
-    symbol,
-    (MAX(close) - MIN(close)) / MIN(close) * 100 as "24h Return %",
-    AVG(volume) as "Average Volume"
-FROM processed_prices 
-WHERE timestamp >= NOW() - INTERVAL '24 hours'
-GROUP BY symbol
-ORDER BY "24h Return %" DESC
-LIMIT 10;
-```
-
-#### **Step 3: Build Dashboard**
-1. **Create New Dashboard** → Give it a descriptive name
-2. **Add Questions** → Select your saved queries
-3. **Arrange Visualizations** → Drag and resize components
-4. **Add Filters** → Date ranges, cryptocurrency selection
-5. **Set Refresh Schedule** → Auto-refresh every 5-15 minutes
-
-***
 
 ## **📈 Monitoring & Logging**
 
@@ -1074,10 +778,6 @@ docker-compose ps
 # View container logs
 docker-compose logs [service-name]
 
-# Common fixes:
-# Out of memory
-- Increase Docker memory limits
-- Add resource constraints to docker-compose.yml
 
 # Port conflicts
 - Check if ports 8080, 3000, 9000 are available
@@ -1594,556 +1294,4 @@ PERFORMANCE_GUIDELINES = [
     "Caching for frequently accessed data",
     "Resource cleanup in finally blocks"
 ]
-```
-
-# **Section 6: Production & Deployment**
-
-## **🚀 Deployment Instructions**
-
-### **Production Deployment Architecture**
-
-The Crypto Data Platform supports multiple deployment scenarios, from single-node development environments to highly available production clusters. This section provides comprehensive guidance for deploying the platform in production-grade environments.
-
-#### **Deployment Options Overview**
-
-| Deployment Type | Use Case | Scalability | Complexity | Cost |
-|----------------|----------|-------------|------------|------|
-| **Single Node Docker** | Development, Proof of Concept | Low | Low | Low |
-| **Multi-Node Docker Swarm** | Small Production, Staging | Medium | Medium | Medium |
-| **Kubernetes (K8s)** | Enterprise Production | High | High | Medium-High |
-| **Cloud-Native (AWS/GCP/Azure)** | Managed Production | Very High | Medium | High |
-
-### **Single Node Production Deployment**
-
-#### **Server Requirements**
-```bash
-# Minimum Production Server Specifications
-CPU: 4+ cores (8+ recommended)
-RAM: 16GB (32GB recommended)
-Storage: 100GB SSD (500GB+ recommended)
-Network: 1Gbps connection
-OS: Ubuntu 20.04 LTS or CentOS 8+
-
-# Recommended Instance Types
-AWS: t3.xlarge or m5.xlarge
-GCP: n1-standard-4 or n2-standard-4
-Azure: Standard_D4s_v3
-```
-
-#### **Production Docker Compose Configuration**
-```yaml
-# docker-compose.prod.yml
-version: '3.8'
-services:
-  postgres-analytics:
-    image: postgres:13-alpine
-    restart: unless-stopped
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - ./sql/init_schema.sql:/docker-entrypoint-initdb.d/init_schema.sql
-    ports:
-      - "5432:5432"
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    deploy:
-      resources:
-        limits:
-          cpus: '2'
-          memory: 4G
-        reservations:
-          cpus: '1'
-          memory: 2G
-
-  minio:
-    image: minio/minio:latest
-    restart: unless-stopped
-    command: server /data --console-address ":9001"
-    environment:
-      MINIO_ROOT_USER: ${MINIO_ACCESS_KEY}
-      MINIO_ROOT_PASSWORD: ${MINIO_SECRET_KEY}
-    volumes:
-      - minio_data:/data
-    ports:
-      - "9000:9000"
-      - "9001:9001"
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-    deploy:
-      resources:
-        limits:
-          cpus: '1'
-          memory: 2G
-
-  airflow-webserver:
-    build: 
-      context: .
-      dockerfile: docker/airflow/Dockerfile.prod
-    restart: unless-stopped
-    depends_on:
-      - postgres-analytics
-      - redis
-    environment:
-      AIRFLOW__CORE__EXECUTOR: LocalExecutor
-      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres-analytics:5432/${POSTGRES_DB}
-      AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
-      AIRFLOW__WEBSERVER__EXPOSE_CONFIG: 'true'
-      AIRFLOW__WEBSERVER__RBAC: 'true'
-    volumes:
-      - ./dags:/opt/airflow/dags
-      - ./etl:/opt/airflow/etl
-      - ./scripts:/opt/airflow/scripts
-      - airflow_logs:/opt/airflow/logs
-    ports:
-      - "8080:8080"
-    deploy:
-      resources:
-        limits:
-          cpus: '2'
-          memory: 4G
-
-  metabase:
-    image: metabase/metabase:latest
-    restart: unless-stopped
-    environment:
-      MB_DB_TYPE: postgres
-      MB_DB_DBNAME: ${METABASE_DB}
-      MB_DB_PORT: 5432
-      MB_DB_USER: ${POSTGRES_USER}
-      MB_DB_PASSWORD: ${POSTGRES_PASSWORD}
-      MB_DB_HOST: postgres-analytics
-    ports:
-      - "3000:3000"
-    volumes:
-      - metabase_data:/metabase-data
-    deploy:
-      resources:
-        limits:
-          cpus: '1'
-          memory: 2G
-
-volumes:
-  postgres_data:
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: /opt/crypto-platform/data/postgres
-  minio_data:
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: /opt/crypto-platform/data/minio
-  airflow_logs:
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: /opt/crypto-platform/logs/airflow
-  metabase_data:
-    driver: local
-```
-
-#### **Production Deployment Script**
-```bash
-#!/bin/bash
-# deploy-production.sh
-
-set -euo pipefail
-
-echo "🚀 Starting Crypto Data Platform Production Deployment"
-
-# Validate environment
-if [[ ! -f ".env.production" ]]; then
-    echo "❌ .env.production file not found!"
-    exit 1
-fi
-
-# Load production environment
-source .env.production
-
-# Create data directories
-sudo mkdir -p /opt/crypto-platform/{data/{postgres,minio},logs/airflow}
-sudo chown -R $USER:$USER /opt/crypto-platform
-
-# Stop existing services
-docker-compose -f docker-compose.prod.yml down
-
-# Pull latest images
-docker-compose -f docker-compose.prod.yml pull
-
-# Start services with health checks
-echo "🔄 Starting services..."
-docker-compose -f docker-compose.prod.yml up -d
-
-# Wait for services to be healthy
-echo "⏳ Waiting for services to be ready..."
-timeout 300 bash -c 'until docker-compose -f docker-compose.prod.yml ps | grep -q "healthy"; do sleep 10; done'
-
-# Initialize database schema
-echo "📊 Initializing database schema..."
-docker-compose -f docker-compose.prod.yml exec -T postgres-analytics psql -U ${POSTGRES_USER} -d ${POSTGRES_DB} -f /docker-entrypoint-initdb.d/init_schema.sql
-
-# Create MinIO buckets
-echo "🪣 Setting up MinIO buckets..."
-docker-compose -f docker-compose.prod.yml exec minio mc alias set local http://localhost:9000 ${MINIO_ACCESS_KEY} ${MINIO_SECRET_KEY}
-docker-compose -f docker-compose.prod.yml exec minio mc mb local/${MINIO_BUCKET} --ignore-existing
-
-# Verify deployment
-echo "✅ Running deployment verification..."
-bash scripts/verify-deployment.sh
-
-echo "🎉 Production deployment completed successfully!"
-echo "📊 Airflow UI: http://$(hostname):8080"
-echo "📈 Metabase: http://$(hostname):3000"
-echo "💾 MinIO Console: http://$(hostname):9001"
-```
-
-***
-
-## **🔐 Security & Secrets Management**
-
-### **Enterprise Security Implementation**
-
-#### **Environment Variables & Secrets**
-```bash
-# Production secrets management
-# Never commit these to version control
-
-# Method 1: Environment Variables (Basic)
-export POSTGRES_PASSWORD=$(openssl rand -base64 32)
-export MINIO_SECRET_KEY=$(openssl rand -base64 32)
-export AIRFLOW_FERNET_KEY=$(python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())")
-
-# Method 2: Docker Secrets (Recommended)
-echo "$(openssl rand -base64 32)" | docker secret create postgres_password -
-echo "$(openssl rand -base64 32)" | docker secret create minio_secret_key -
-```
-
-#### **Docker Secrets Configuration**
-```yaml
-# docker-compose.prod-secure.yml
-version: '3.8'
-services:
-  postgres-analytics:
-    image: postgres:13-alpine
-    secrets:
-      - postgres_password
-    environment:
-      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_DB: ${POSTGRES_DB}
-    # ... other configuration
-
-secrets:
-  postgres_password:
-    external: true
-  minio_secret_key:
-    external: true
-  airflow_fernet_key:
-    external: true
-```
-
-#### **Network Security Configuration**
-```yaml
-# Secure network configuration
-networks:
-  crypto_backend:
-    driver: bridge
-    internal: true  # No external access
-  crypto_frontend:
-    driver: bridge
-    
-services:
-  postgres-analytics:
-    networks:
-      - crypto_backend  # Only internal access
-  
-  airflow-webserver:
-    networks:
-      - crypto_backend
-      - crypto_frontend  # External access for UI
-    ports:
-      - "8080:8080"
-```
-
-#### **SSL/TLS Configuration**
-```nginx
-# nginx.conf for SSL termination
-server {
-    listen 443 ssl http2;
-    server_name crypto-platform.yourdomain.com;
-    
-    ssl_certificate /etc/letsencrypt/live/yourdomain.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/yourdomain.com/privkey.pem;
-    
-    # Security headers
-    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
-    add_header X-Frame-Options "SAMEORIGIN" always;
-    add_header X-Content-Type-Options "nosniff" always;
-    
-    location /airflow/ {
-        proxy_pass http://localhost:8080/;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-    }
-    
-    location /metabase/ {
-        proxy_pass http://localhost:3000/;
-        # ... similar proxy configuration
-    }
-}
-```
-
-#### **Database Security Hardening**
-```sql
--- PostgreSQL security configuration
--- Create dedicated application user
-CREATE USER crypto_app WITH ENCRYPTED PASSWORD 'secure_password';
-CREATE DATABASE crypto_analytics OWNER crypto_app;
-
--- Grant minimal required permissions
-GRANT CONNECT ON DATABASE crypto_analytics TO crypto_app;
-GRANT USAGE ON SCHEMA public TO crypto_app;
-GRANT SELECT, INSERT, UPDATE, DELETE ON processed_prices TO crypto_app;
-GRANT SELECT, INSERT, UPDATE ON processed_files TO crypto_app;
-
--- Enable row-level security (if needed)
-ALTER TABLE processed_prices ENABLE ROW LEVEL SECURITY;
-```
-
-***
-
-## **📈 Scalability Considerations**
-
-### **Horizontal Scaling Architecture**
-
-#### **Load Balancer Configuration**
-```yaml
-# docker-compose.scale.yml
-version: '3.8'
-services:
-  nginx-lb:
-    image: nginx:alpine
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./ssl:/etc/ssl/certs
-    depends_on:
-      - airflow-webserver-1
-      - airflow-webserver-2
-  
-  airflow-webserver-1:
-    extends:
-      file: docker-compose.prod.yml
-      service: airflow-webserver
-    container_name: airflow-webserver-1
-  
-  airflow-webserver-2:
-    extends:
-      file: docker-compose.prod.yml
-      service: airflow-webserver
-    container_name: airflow-webserver-2
-    ports:
-      - "8081:8080"
-```
-
-#### **Database Scaling Strategy**
-```sql
--- PostgreSQL scaling configuration
--- Read replicas for analytical queries
-CREATE SUBSCRIPTION crypto_analytics_replica
-CONNECTION 'host=postgres-master port=5432 user=replication_user dbname=crypto_analytics'
-PUBLICATION crypto_data_pub;
-
--- Partitioning strategy for large tables
-CREATE TABLE processed_prices_2025_q1 PARTITION OF processed_prices
-FOR VALUES FROM ('2025-01-01') TO ('2025-04-01');
-
-CREATE TABLE processed_prices_2025_q2 PARTITION OF processed_prices
-FOR VALUES FROM ('2025-04-01') TO ('2025-07-01');
-```
-
-#### **Object Storage Scaling**
-```yaml
-# MinIO cluster configuration
-version: '3.8'
-services:
-  minio1:
-    image: minio/minio:latest
-    command: server http://minio{1...4}/data{1...2}
-    environment:
-      MINIO_ROOT_USER: ${MINIO_ACCESS_KEY}
-      MINIO_ROOT_PASSWORD: ${MINIO_SECRET_KEY}
-    volumes:
-      - minio1-data1:/data1
-      - minio1-data2:/data2
-  
-  minio2:
-    image: minio/minio:latest
-    command: server http://minio{1...4}/data{1...2}
-    # ... similar configuration for clustering
-```
-
-***
-
-## **🔄 CI/CD & Automation (Future Implementation)**
-
-### **GitHub Actions CI/CD Pipeline**
-
-#### **Continuous Integration Pipeline**
-```yaml
-# .github/workflows/ci.yml
-name: Continuous Integration
-on:
-  push:
-    branches: [ main, develop ]
-  pull_request:
-    branches: [ main ]
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:13
-        env:
-          POSTGRES_PASSWORD: test_password
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-    
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.8'
-    
-    - name: Cache dependencies
-      uses: actions/cache@v3
-      with:
-        path: ~/.cache/pip
-        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements*.txt') }}
-    
-    - name: Install dependencies
-      run: |
-        pip install -r requirements-dev.txt
-    
-    - name: Lint with flake8
-      run: |
-        flake8 etl/ dags/ scripts/ --count --select=E9,F63,F7,F82 --show-source --statistics
-        flake8 etl/ dags/ scripts/ --count --exit-zero --max-complexity=10 --max-line-length=88 --statistics
-    
-    - name: Format check with black
-      run: |
-        black --check etl/ dags/ scripts/
-    
-    - name: Sort imports check
-      run: |
-        isort --check-only etl/ dags/ scripts/
-    
-    - name: Run unit tests
-      run: |
-        pytest tests/unit/ -v --cov=etl --cov-report=xml --cov-report=term
-    
-    - name: Run integration tests
-      run: |
-        pytest tests/integration/ -v
-    
-    - name: SonarQube Scan
-      uses: sonarqube-quality-gate-action@master
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-    
-    - name: Upload coverage reports
-      uses: codecov/codecov-action@v3
-      with:
-        file: ./coverage.xml
-```
-
-#### **Continuous Deployment Pipeline**
-```yaml
-# .github/workflows/cd.yml
-name: Continuous Deployment
-on:
-  push:
-    branches: [ main ]
-    tags: [ 'v*' ]
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v')
-    
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v2
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1
-    
-    - name: Login to Amazon ECR
-      id: login-ecr
-      uses: aws-actions/amazon-ecr-login@v1
-    
-    - name: Build and push Docker images
-      env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: crypto-data-platform
-        IMAGE_TAG: ${{ github.sha }}
-      run: |
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
-    
-    - name: Deploy to production
-      run: |
-        # Deploy to ECS or Kubernetes
-        aws ecs update-service --cluster crypto-platform --service crypto-etl --force-new-deployment
-```
-
-### **Rollback Strategy**
-```bash
-#!/bin/bash
-# rollback.sh - Production rollback script
-
-PREVIOUS_VERSION=${1:-"latest-stable"}
-
-echo "🔄 Rolling back to version: $PREVIOUS_VERSION"
-
-# Stop current services
-docker-compose -f docker-compose.prod.yml down
-
-# Restore previous version
-docker tag crypto-platform:$PREVIOUS_VERSION crypto-platform:latest
-
-# Start services with previous version
-docker-compose -f docker-compose.prod.yml up -d
-
-# Verify rollback
-bash scripts/verify-deployment.sh
-
-echo "✅ Rollback completed successfully"
 ```

@@ -1,0 +1,23 @@
+[2025-09-21T21:15:13.248+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: crypto_etl_main.check_new_files manual__2025-09-21T21:15:03.108088+00:00 [queued]>
+[2025-09-21T21:15:13.274+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: crypto_etl_main.check_new_files manual__2025-09-21T21:15:03.108088+00:00 [queued]>
+[2025-09-21T21:15:13.275+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-09-21T21:15:13.312+0000] {taskinstance.py:2191} INFO - Executing <Task(BranchPythonOperator): check_new_files> on 2025-09-21 21:15:03.108088+00:00
+[2025-09-21T21:15:13.324+0000] {standard_task_runner.py:60} INFO - Started process 4045 to run task
+[2025-09-21T21:15:13.332+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'crypto_etl_main', 'check_new_files', 'manual__2025-09-21T21:15:03.108088+00:00', '--job-id', '87', '--raw', '--subdir', 'DAGS_FOLDER/crypto_etl_dag.py', '--cfg-path', '/tmp/tmphibgwllt']
+[2025-09-21T21:15:13.340+0000] {standard_task_runner.py:88} INFO - Job 87: Subtask check_new_files
+[2025-09-21T21:15:13.468+0000] {task_command.py:423} INFO - Running <TaskInstance: crypto_etl_main.check_new_files manual__2025-09-21T21:15:03.108088+00:00 [running]> on host e55d1e17d5c4
+[2025-09-21T21:15:13.648+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-team' AIRFLOW_CTX_DAG_ID='crypto_etl_main' AIRFLOW_CTX_TASK_ID='check_new_files' AIRFLOW_CTX_EXECUTION_DATE='2025-09-21T21:15:03.108088+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-21T21:15:03.108088+00:00'
+[2025-09-21T21:15:13.843+0000] {log.py:232} WARNING - [2025-09-21 21:15:13,842] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-21T21:15:13.842+0000] {extract.py:23} INFO - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-21T21:15:13.885+0000] {log.py:232} WARNING - [2025-09-21 21:15:13,884] INFO - crypto_etl - Found 77 CSV files
+[2025-09-21T21:15:13.884+0000] {extract.py:27} INFO - Found 77 CSV files
+[2025-09-21T21:15:13.894+0000] {log.py:232} WARNING - [2025-09-21 21:15:13,894] INFO - crypto_etl - Found 0 unprocessed files out of 77 total
+[2025-09-21T21:15:13.894+0000] {file_processor.py:24} INFO - Found 0 unprocessed files out of 77 total
+[2025-09-21T21:15:13.896+0000] {logging_mixin.py:188} INFO - No new files to process
+[2025-09-21T21:15:13.897+0000] {python.py:201} INFO - Done. Returned value was: no_new_files
+[2025-09-21T21:15:13.898+0000] {branch.py:35} INFO - Branch into no_new_files
+[2025-09-21T21:15:13.899+0000] {skipmixin.py:178} INFO - Following branch no_new_files
+[2025-09-21T21:15:13.923+0000] {skipmixin.py:244} INFO - Skipping tasks [('validate_files', -1)]
+[2025-09-21T21:15:13.993+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=crypto_etl_main, task_id=check_new_files, execution_date=20250921T211503, start_date=20250921T211513, end_date=20250921T211513
+[2025-09-21T21:15:14.027+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-09-21T21:15:14.078+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
