@@ -10,7 +10,6 @@ from etl.logger_config import logger
 load_dotenv()
 
 DB_CONN = os.getenv("POSTGRES_CONN")
-# DB_CONN = "postgresql://postgres:postgres@postgres-analytics:5432/postgres"
 
 def get_connection():
     conn = psycopg2.connect(DB_CONN)

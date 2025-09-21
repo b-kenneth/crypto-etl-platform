@@ -10,7 +10,6 @@ class FileProcessingManager:
     
     def __init__(self):
         self.db_conn = os.getenv("POSTGRES_CONN")
-        # self.db_conn = "postgresql://postgres:postgres@postgres-analytics:5432/postgres"
     
     def get_unprocessed_files(self, available_files: List[str]) -> List[str]:
         """Return list of files that haven't been processed yet"""
