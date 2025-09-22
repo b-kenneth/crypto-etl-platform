@@ -13,3 +13,8 @@ CREATE TABLE IF NOT EXISTS processed_prices (
     moving_avg NUMERIC,
     PRIMARY KEY (timestamp, symbol)
 );
+
+
+CREATE INDEX IF NOT EXISTS idx_processed_prices_symbol ON processed_prices(symbol);
+CREATE INDEX IF NOT EXISTS idx_processed_prices_timestamp ON processed_prices(timestamp);
+CREATE INDEX IF NOT EXISTS idx_processed_files_status ON processed_files(status);

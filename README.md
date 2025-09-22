@@ -168,6 +168,10 @@ CREATE TABLE IF NOT EXISTS processed_files (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE INDEX IF NOT EXISTS idx_processed_files_status ON processed_files(status);
+CREATE INDEX IF NOT EXISTS idx_processed_files_processed_at ON processed_files(processed_at);
+
+
 CREATE TABLE IF NOT EXISTS processed_prices (
     timestamp TIMESTAMP NOT NULL,
     symbol VARCHAR(10) NOT NULL,
@@ -536,13 +540,16 @@ The Crypto Data Platform is designed for autonomous operation with minimal manua
 
 ## **📊 Dashboard & Visualization**
 
-### **Pre-Built Analytics Dashboards**
+### **Analytics Dashboards**
 
 ![dashboard](assets/Screenshot%202025-09-21%20173123.png)
 
 #### **Executive Overview Dashboard**
 **Purpose**: High-level business metrics for stakeholders  
 **Key Visualizations**:
+
+**Market Dominance**:
+Shows the relative market share of each cryptocurrency based on market capitalization over the last 24 hours. This pie chart reveals which coins control the largest portions of the crypto market and helps identify market leaders versus smaller players.
 
 ```sql
 -- Market Dominance
@@ -560,6 +567,9 @@ ORDER BY AVG(market_cap) DESC
 **Purpose**: Detailed price movement and trading analysis  
 **Key Visualizations**:
 
+**24 Hr Average Volatility**
+Displays the average price volatility for each cryptocurrency over the past 24 hours, ranked from most to least volatile. Higher volatility indicates greater price swings and potential trading opportunities, while lower volatility suggests more stable price movements.
+
 ```sql
 --24 hr average volatility
 SELECT 
@@ -569,7 +579,12 @@ FROM processed_prices
 WHERE timestamp >= NOW() - INTERVAL '24 hours'
 GROUP BY symbol
 ORDER BY avg_volatility DESC
+```
 
+**% Price Change Per Day**
+Tracks the hourly percentage price movements for each cryptocurrency throughout the last 24 hours. This visualization helps identify price trends, momentum shifts, and periods of significant market activity or stability.
+
+```sql
 --% Price Change Per Day
 SELECT 
     symbol,
@@ -577,7 +592,12 @@ SELECT
     price_change_pct
 FROM processed_prices 
 WHERE timestamp >= NOW() - INTERVAL '24 hours'
+```
 
+**24 Hr Trading Volume**
+Shows the total trading volume for each cryptocurrency aggregated by hour over the past 24 hours. Higher volume typically indicates greater market interest and liquidity, while volume spikes often correlate with significant price movements or news events.
+
+```sql
 --24 Hr Trading volume
 SELECT 
     DATE_TRUNC('hour', timestamp) as hour,
