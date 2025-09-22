@@ -1,0 +1,219 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  PYTHON_VERSION: '3.8'
+
+jobs:
+  lint:
+    name: Code Quality & Linting
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Cache pip dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements*.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements-dev.txt
+    
+    - name: Lint with flake8
+      run: |
+        # Stop build if there are Python syntax errors or undefined names
+        flake8 etl/ dags/ scripts/ --count --select=E9,F63,F7,F82 --show-source --statistics
+        # Exit-zero treats all errors as warnings
+        flake8 etl/ dags/ scripts/ --count --exit-zero --max-complexity=10 --max-line-length=88 --statistics
+    
+    - name: Check code formatting with black
+      run: |
+        black --check etl/ dags/ scripts/
+    
+    - name: Check import sorting with isort
+      run: |
+        isort --check-only etl/ dags/ scripts/
+    
+    - name: Type checking with mypy
+      run: |
+        mypy etl/ --ignore-missing-imports
+    
+    - name: Security check with bandit
+      run: |
+        bandit -r etl/ scripts/ -f json -o bandit-report.json
+    
+    - name: Upload bandit results
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: bandit-results
+        path: bandit-report.json
+
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    needs: lint
+    
+    services:
+      postgres:
+        image: postgres:13
+        env:
+          POSTGRES_PASSWORD: test_password
+          POSTGRES_USER: test_user
+          POSTGRES_DB: test_crypto_analytics
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+      
+      redis:
+        image: redis:alpine
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 6379:6379
+      
+      minio:
+        image: minio/minio:latest
+        env:
+          MINIO_ROOT_USER: test_access_key
+          MINIO_ROOT_PASSWORD: test_secret_key
+        options: --health-cmd "curl -f http://localhost:9000/minio/health/live"
+        ports:
+          - 9000:9000
+        volumes:
+          - /tmp/minio-data:/data
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements-dev.txt
+    
+    - name: Set up test environment
+      env:
+        POSTGRES_CONN: postgresql://test_user:test_password@localhost:5432/test_crypto_analytics
+        MINIO_ENDPOINT: localhost:9000
+        MINIO_ACCESS_KEY: test_access_key
+        MINIO_SECRET_KEY: test_secret_key
+        MINIO_BUCKET: test-crypto-data
+      run: |
+        # Create test database schema
+        PGPASSWORD=test_password psql -h localhost -U test_user -d test_crypto_analytics -c "
+        CREATE TABLE IF NOT EXISTS processed_prices (
+            timestamp TIMESTAMP NOT NULL,
+            symbol VARCHAR(10) NOT NULL,
+            open NUMERIC(18, 8),
+            high NUMERIC(18, 8),
+            low NUMERIC(18, 8),
+            close NUMERIC(18, 8),
+            volume NUMERIC,
+            market_cap NUMERIC,
+            volatility NUMERIC,
+            price_change_pct NUMERIC,
+            rolling_volatility NUMERIC,
+            moving_avg NUMERIC,
+            PRIMARY KEY (timestamp, symbol)
+        );
+        
+        CREATE TABLE IF NOT EXISTS processed_files (
+            file_path VARCHAR(255) PRIMARY KEY,
+            processed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            file_size BIGINT,
+            record_count INTEGER,
+            status VARCHAR(20) DEFAULT 'processing',
+            error_message TEXT,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        );"
+    
+    - name: Run unit tests
+      env:
+        POSTGRES_CONN: postgresql://test_user:test_password@localhost:5432/test_crypto_analytics
+        MINIO_ENDPOINT: localhost:9000
+        MINIO_ACCESS_KEY: test_access_key
+        MINIO_SECRET_KEY: test_secret_key
+        MINIO_BUCKET: test-crypto-data
+      run: |
+        pytest tests/unit/ -v --cov=etl --cov=scripts --cov-report=xml --cov-report=term-missing
+    
+    - name: Run integration tests
+      env:
+        POSTGRES_CONN: postgresql://test_user:test_password@localhost:5432/test_crypto_analytics
+        MINIO_ENDPOINT: localhost:9000
+        MINIO_ACCESS_KEY: test_access_key
+        MINIO_SECRET_KEY: test_secret_key
+        MINIO_BUCKET: test-crypto-data
+      run: |
+        pytest tests/integration/ -v --tb=short
+    
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-umbrella
+    
+    - name: Generate test report
+      run: |
+        pytest tests/ --html=test-report.html --self-contained-html
+    
+    - name: Upload test report
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: test-report
+        path: test-report.html
+
+  docker-build:
+    name: Docker Build Test
+    runs-on: ubuntu-latest
+    needs: test
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+    
+    - name: Build Docker images
+      run: |
+        docker-compose -f docker-compose.yml build --no-cache
+    
+    - name: Test Docker services startup
+      run: |
+        docker-compose up -d
+        sleep 30
+        docker-compose ps
+        docker-compose down
