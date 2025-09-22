@@ -60,7 +60,7 @@ jobs:
         bandit -r etl/ scripts/ -f json -o bandit-report.json
     
     - name: Upload bandit results
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       if: always()
       with:
         name: bandit-results
