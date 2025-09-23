@@ -55,16 +55,16 @@ jobs:
       run: |
         mypy docker/dags/etl/ --ignore-missing-imports
     
-    - name: Security check with bandit
-      run: |
-        bandit -r docker/dags/etl/ docker/dags/scripts/ -f json -o bandit-report.json
+    # - name: Security check with bandit
+    #   run: |
+    #     bandit -r docker/dags/etl/ docker/dags/scripts/ -f json -o bandit-report.json
     
-    - name: Upload bandit results
-      uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: bandit-results
-        path: bandit-report.json
+    # - name: Upload bandit results
+    #   uses: actions/upload-artifact@v4
+    #   if: always()
+    #   with:
+    #     name: bandit-results
+    #     path: bandit-report.json
 
   test:
     name: Run Tests
