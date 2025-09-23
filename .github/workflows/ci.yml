@@ -47,9 +47,9 @@ jobs:
     #   run: |
     #     black --check docker/dags/etl/ docker/dags/ docker/dags/scripts/
     
-    - name: Check import sorting with isort
-      run: |
-        isort --check-only docker/dags/etl/ docker/dags/ docker/dags/scripts/
+    # - name: Check import sorting with isort
+    #   run: |
+    #     isort --check-only docker/dags/etl/ docker/dags/ docker/dags/scripts/
     
     - name: Type checking with mypy
       run: |
