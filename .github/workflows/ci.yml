@@ -60,7 +60,7 @@ jobs:
     
     - name: Validate Docker Compose
       run: |
-        docker-compose -f docker/docker-compose.yml config
+        docker compose -f docker/docker-compose.yml config
     
     - name: Build Docker images (no cache for validation)
       run: |
