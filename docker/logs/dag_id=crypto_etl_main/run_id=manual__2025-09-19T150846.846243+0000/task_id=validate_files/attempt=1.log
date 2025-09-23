@@ -1,0 +1,20 @@
+[2025-09-19T15:08:52.838+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: crypto_etl_main.validate_files manual__2025-09-19T15:08:46.846243+00:00 [queued]>
+[2025-09-19T15:08:52.861+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: crypto_etl_main.validate_files manual__2025-09-19T15:08:46.846243+00:00 [queued]>
+[2025-09-19T15:08:52.862+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-09-19T15:08:52.890+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): validate_files> on 2025-09-19 15:08:46.846243+00:00
+[2025-09-19T15:08:52.898+0000] {standard_task_runner.py:60} INFO - Started process 1656 to run task
+[2025-09-19T15:08:52.903+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'crypto_etl_main', 'validate_files', 'manual__2025-09-19T15:08:46.846243+00:00', '--job-id', '104', '--raw', '--subdir', 'DAGS_FOLDER/crypto_etl_dag.py', '--cfg-path', '/tmp/tmpbp3_yhrn']
+[2025-09-19T15:08:52.909+0000] {standard_task_runner.py:88} INFO - Job 104: Subtask validate_files
+[2025-09-19T15:08:52.988+0000] {task_command.py:423} INFO - Running <TaskInstance: crypto_etl_main.validate_files manual__2025-09-19T15:08:46.846243+00:00 [running]> on host ed735ff6f76b
+[2025-09-19T15:08:53.123+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-team' AIRFLOW_CTX_DAG_ID='crypto_etl_main' AIRFLOW_CTX_TASK_ID='validate_files' AIRFLOW_CTX_EXECUTION_DATE='2025-09-19T15:08:46.846243+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-19T15:08:46.846243+00:00'
+[2025-09-19T15:08:53.296+0000] {log.py:232} WARNING - [2025-09-19 15:08:53,295] INFO - crypto_etl - Marked raw-data/2025/09/19/16/crypto_data_20250919_16.csv as processing
+[2025-09-19T15:08:53.295+0000] {file_processor.py:44} INFO - Marked raw-data/2025/09/19/16/crypto_data_20250919_16.csv as processing
+[2025-09-19T15:08:53.299+0000] {log.py:232} WARNING - [2025-09-19 15:08:53,298] INFO - crypto_etl - Reading CSV raw-data/2025/09/19/16/crypto_data_20250919_16.csv from bucket crypto-data
+[2025-09-19T15:08:53.298+0000] {extract.py:37} INFO - Reading CSV raw-data/2025/09/19/16/crypto_data_20250919_16.csv from bucket crypto-data
+[2025-09-19T15:08:53.319+0000] {log.py:232} WARNING - [2025-09-19 15:08:53,318] INFO - crypto_etl - Read CSV raw-data/2025/09/19/16/crypto_data_20250919_16.csv with 6 rows
+[2025-09-19T15:08:53.318+0000] {extract.py:44} INFO - Read CSV raw-data/2025/09/19/16/crypto_data_20250919_16.csv with 6 rows
+[2025-09-19T15:08:53.320+0000] {logging_mixin.py:188} INFO - ✓ Valid structure: raw-data/2025/09/19/16/crypto_data_20250919_16.csv (6 records)
+[2025-09-19T15:08:53.358+0000] {python.py:201} INFO - Done. Returned value was: extract_data
+[2025-09-19T15:08:53.389+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=crypto_etl_main, task_id=validate_files, execution_date=20250919T150846, start_date=20250919T150852, end_date=20250919T150853
+[2025-09-19T15:08:53.439+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-09-19T15:08:53.485+0000] {taskinstance.py:3280} INFO - 2 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,14 @@
+[2025-09-19T15:15:14.923+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: crypto_etl_main.partial_validation_success scheduled__2025-09-19T15:00:00+00:00 [queued]>
+[2025-09-19T15:15:14.942+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: crypto_etl_main.partial_validation_success scheduled__2025-09-19T15:00:00+00:00 [queued]>
+[2025-09-19T15:15:14.944+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-09-19T15:15:14.980+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): partial_validation_success> on 2025-09-19 15:00:00+00:00
+[2025-09-19T15:15:14.989+0000] {standard_task_runner.py:60} INFO - Started process 1782 to run task
+[2025-09-19T15:15:14.996+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'crypto_etl_main', 'partial_validation_success', 'scheduled__2025-09-19T15:00:00+00:00', '--job-id', '114', '--raw', '--subdir', 'DAGS_FOLDER/crypto_etl_dag.py', '--cfg-path', '/tmp/tmpmf3qtjcu']
+[2025-09-19T15:15:15.001+0000] {standard_task_runner.py:88} INFO - Job 114: Subtask partial_validation_success
+[2025-09-19T15:15:15.087+0000] {task_command.py:423} INFO - Running <TaskInstance: crypto_etl_main.partial_validation_success scheduled__2025-09-19T15:00:00+00:00 [running]> on host ed735ff6f76b
+[2025-09-19T15:15:15.238+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-team' AIRFLOW_CTX_DAG_ID='crypto_etl_main' AIRFLOW_CTX_TASK_ID='partial_validation_success' AIRFLOW_CTX_EXECUTION_DATE='2025-09-19T15:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-09-19T15:00:00+00:00'
+[2025-09-19T15:15:15.241+0000] {logging_mixin.py:188} INFO - Some files failed validation, continuing with valid files
+[2025-09-19T15:15:15.242+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-09-19T15:15:15.259+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=crypto_etl_main, task_id=partial_validation_success, execution_date=20250919T150000, start_date=20250919T151514, end_date=20250919T151515
+[2025-09-19T15:15:15.329+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-09-19T15:15:15.380+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

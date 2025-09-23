@@ -1,0 +1,38 @@
+[2025-09-19T14:14:23.426+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: crypto_etl_main.check_new_files manual__2025-09-19T14:14:04.841266+00:00 [queued]>
+[2025-09-19T14:14:23.440+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: crypto_etl_main.check_new_files manual__2025-09-19T14:14:04.841266+00:00 [queued]>
+[2025-09-19T14:14:23.442+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-09-19T14:14:23.465+0000] {taskinstance.py:2191} INFO - Executing <Task(BranchPythonOperator): check_new_files> on 2025-09-19 14:14:04.841266+00:00
+[2025-09-19T14:14:23.474+0000] {standard_task_runner.py:60} INFO - Started process 817 to run task
+[2025-09-19T14:14:23.479+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'crypto_etl_main', 'check_new_files', 'manual__2025-09-19T14:14:04.841266+00:00', '--job-id', '79', '--raw', '--subdir', 'DAGS_FOLDER/crypto_etl_dag.py', '--cfg-path', '/tmp/tmpd_wgd98s']
+[2025-09-19T14:14:23.483+0000] {standard_task_runner.py:88} INFO - Job 79: Subtask check_new_files
+[2025-09-19T14:14:23.562+0000] {task_command.py:423} INFO - Running <TaskInstance: crypto_etl_main.check_new_files manual__2025-09-19T14:14:04.841266+00:00 [running]> on host ed735ff6f76b
+[2025-09-19T14:14:23.684+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-team' AIRFLOW_CTX_DAG_ID='crypto_etl_main' AIRFLOW_CTX_TASK_ID='check_new_files' AIRFLOW_CTX_EXECUTION_DATE='2025-09-19T14:14:04.841266+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-09-19T14:14:04.841266+00:00'
+[2025-09-19T14:14:23.824+0000] {log.py:232} WARNING - [2025-09-19 14:14:23,823] INFO - crypto_etl - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-19T14:14:23.823+0000] {extract.py:26} INFO - Listing files from bucket crypto-data with prefix 'raw-data/'
+[2025-09-19T14:14:23.838+0000] {log.py:232} WARNING - [2025-09-19 14:14:23,837] INFO - crypto_etl - Found 1 CSV files
+[2025-09-19T14:14:23.837+0000] {extract.py:30} INFO - Found 1 CSV files
+[2025-09-19T14:14:23.841+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 233, in execute
+    return self.do_branch(context, super().execute(context))
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/crypto_etl_dag.py", line 45, in check_new_files
+    unprocessed_files = processor.get_unprocessed_files(all_files)
+  File "/opt/airflow/dags/etl/file_processor.py", line 17, in get_unprocessed_files
+    conn = psycopg2.connect(self.db_conn)
+  File "/home/airflow/.local/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "192.168.192.4", port 5433 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2025-09-19T14:14:23.868+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=crypto_etl_main, task_id=check_new_files, execution_date=20250919T141404, start_date=20250919T141423, end_date=20250919T141423
+[2025-09-19T14:14:23.889+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 79 for task check_new_files (connection to server at "192.168.192.4", port 5433 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+; 817)
+[2025-09-19T14:14:23.933+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-09-19T14:14:23.978+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

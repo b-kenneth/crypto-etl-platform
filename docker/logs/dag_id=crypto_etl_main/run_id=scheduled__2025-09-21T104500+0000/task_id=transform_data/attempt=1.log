@@ -1,0 +1,24 @@
+[2025-09-21T11:13:14.853+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: crypto_etl_main.transform_data scheduled__2025-09-21T10:45:00+00:00 [queued]>
+[2025-09-21T11:13:14.876+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: crypto_etl_main.transform_data scheduled__2025-09-21T10:45:00+00:00 [queued]>
+[2025-09-21T11:13:14.877+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-09-21T11:13:14.916+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): transform_data> on 2025-09-21 10:45:00+00:00
+[2025-09-21T11:13:14.926+0000] {standard_task_runner.py:60} INFO - Started process 99 to run task
+[2025-09-21T11:13:14.931+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'crypto_etl_main', 'transform_data', 'scheduled__2025-09-21T10:45:00+00:00', '--job-id', '167', '--raw', '--subdir', 'DAGS_FOLDER/crypto_etl_dag.py', '--cfg-path', '/tmp/tmpex62o_bk']
+[2025-09-21T11:13:14.938+0000] {standard_task_runner.py:88} INFO - Job 167: Subtask transform_data
+[2025-09-21T11:13:15.034+0000] {task_command.py:423} INFO - Running <TaskInstance: crypto_etl_main.transform_data scheduled__2025-09-21T10:45:00+00:00 [running]> on host 81634f637f1a
+[2025-09-21T11:13:15.207+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-team' AIRFLOW_CTX_DAG_ID='crypto_etl_main' AIRFLOW_CTX_TASK_ID='transform_data' AIRFLOW_CTX_EXECUTION_DATE='2025-09-21T10:45:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-09-21T10:45:00+00:00'
+[2025-09-21T11:13:15.294+0000] {log.py:232} WARNING - [2025-09-21 11:13:15,293] INFO - crypto_etl - Starting data transformation...
+[2025-09-21T11:13:15.293+0000] {transform.py:27} INFO - Starting data transformation...
+[2025-09-21T11:13:15.300+0000] {log.py:232} WARNING - [2025-09-21 11:13:15,299] INFO - crypto_etl - Adding derived metrics...
+[2025-09-21T11:13:15.299+0000] {transform.py:14} INFO - Adding derived metrics...
+[2025-09-21T11:13:15.337+0000] {log.py:232} WARNING - [2025-09-21 11:13:15,336] INFO - crypto_etl - Data transformation complete
+[2025-09-21T11:13:15.336+0000] {transform.py:32} INFO - Data transformation complete
+[2025-09-21T11:13:15.350+0000] {log.py:232} WARNING - [2025-09-21 11:13:15,350] INFO - crypto_etl - Upserted 6 rows into processed_prices
+[2025-09-21T11:13:15.350+0000] {load.py:44} INFO - Upserted 6 rows into processed_prices
+[2025-09-21T11:13:15.359+0000] {log.py:232} WARNING - [2025-09-21 11:13:15,358] INFO - crypto_etl - Marked raw-data/2025/09/21/10/crypto_data_20250921_10.csv as completed with 6 records
+[2025-09-21T11:13:15.358+0000] {file_processor.py:61} INFO - Marked raw-data/2025/09/21/10/crypto_data_20250921_10.csv as completed with 6 records
+[2025-09-21T11:13:15.360+0000] {logging_mixin.py:188} INFO - ✓ Successfully processed: raw-data/2025/09/21/10/crypto_data_20250921_10.csv (6 records)
+[2025-09-21T11:13:15.409+0000] {python.py:201} INFO - Done. Returned value was: Processed 1 files successfully, 6 total records
+[2025-09-21T11:13:15.436+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=crypto_etl_main, task_id=transform_data, execution_date=20250921T104500, start_date=20250921T111314, end_date=20250921T111315
+[2025-09-21T11:13:15.468+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-09-21T11:13:15.516+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

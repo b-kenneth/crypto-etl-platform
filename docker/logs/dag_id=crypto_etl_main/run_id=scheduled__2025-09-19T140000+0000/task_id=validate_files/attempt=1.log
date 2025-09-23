@@ -1,0 +1,28 @@
+[2025-09-19T14:21:30.927+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: crypto_etl_main.validate_files scheduled__2025-09-19T14:00:00+00:00 [queued]>
+[2025-09-19T14:21:30.947+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: crypto_etl_main.validate_files scheduled__2025-09-19T14:00:00+00:00 [queued]>
+[2025-09-19T14:21:30.948+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-09-19T14:21:30.981+0000] {taskinstance.py:2191} INFO - Executing <Task(BranchPythonOperator): validate_files> on 2025-09-19 14:00:00+00:00
+[2025-09-19T14:21:30.991+0000] {standard_task_runner.py:60} INFO - Started process 928 to run task
+[2025-09-19T14:21:30.997+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'crypto_etl_main', 'validate_files', 'scheduled__2025-09-19T14:00:00+00:00', '--job-id', '84', '--raw', '--subdir', 'DAGS_FOLDER/crypto_etl_dag.py', '--cfg-path', '/tmp/tmps5pvifp_']
+[2025-09-19T14:21:31.002+0000] {standard_task_runner.py:88} INFO - Job 84: Subtask validate_files
+[2025-09-19T14:21:31.108+0000] {task_command.py:423} INFO - Running <TaskInstance: crypto_etl_main.validate_files scheduled__2025-09-19T14:00:00+00:00 [running]> on host ed735ff6f76b
+[2025-09-19T14:21:31.259+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-team' AIRFLOW_CTX_DAG_ID='crypto_etl_main' AIRFLOW_CTX_TASK_ID='validate_files' AIRFLOW_CTX_EXECUTION_DATE='2025-09-19T14:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-09-19T14:00:00+00:00'
+[2025-09-19T14:21:31.410+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 233, in execute
+    return self.do_branch(context, super().execute(context))
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/crypto_etl_dag.py", line 61, in validate_file_structure
+    from etl.data_quality import DataQualityChecker
+  File "/opt/airflow/dags/etl/data_quality.py", line 3, in <module>
+    from logger_config import logger
+ModuleNotFoundError: No module named 'logger_config'
+[2025-09-19T14:21:31.434+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=crypto_etl_main, task_id=validate_files, execution_date=20250919T140000, start_date=20250919T142130, end_date=20250919T142131
+[2025-09-19T14:21:31.460+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 84 for task validate_files (No module named 'logger_config'; 928)
+[2025-09-19T14:21:31.492+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-09-19T14:21:31.548+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
