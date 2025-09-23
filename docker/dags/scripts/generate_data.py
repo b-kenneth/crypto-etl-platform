@@ -2,6 +2,7 @@ import csv
 import os
 import random
 from datetime import datetime, timedelta
+from etl.logger_config import logger 
 
 # Configurable coins and base prices (USD)
 COINS = {
@@ -16,7 +17,7 @@ COINS = {
 OUTPUT_DIR = 'data'  # Output folder for generated CSVs
 
 def simulate_hourly_data(base_price):
-    """Simulate OHLCV data with volatility for 1 hour"""
+    """Simulate OHLCV data with volatility for one hour."""
     volatility = random.uniform(0.01, 0.06)  # 1% to 6%
     open_price = base_price * (1 + random.uniform(-volatility, volatility))
     close_price = open_price * (1 + random.uniform(-volatility, volatility))
@@ -27,9 +28,7 @@ def simulate_hourly_data(base_price):
     return open_price, high_price, low_price, close_price, volume, market_cap, volatility
 
 def generate_csv_for_hour(dt, output_path=None):
-    """Generate CSV file for all coins for a single hour with custom output path"""
-    import os
-    
+    """Generate a CSV file with simulated OHLCV data for all coins for a single hour."""
     if output_path:
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         filename = output_path
@@ -43,7 +42,7 @@ def generate_csv_for_hour(dt, output_path=None):
         writer.writeheader()
         timestamp = dt.isoformat()
         for symbol, base_price in COINS.items():
-            o,h,l,c,v,mc,vol = simulate_hourly_data(base_price)
+            o, h, l, c, v, mc, vol = simulate_hourly_data(base_price)
             writer.writerow({
                 'timestamp': timestamp,
                 'symbol': symbol,
@@ -55,12 +54,11 @@ def generate_csv_for_hour(dt, output_path=None):
                 'market_cap': round(mc, 2),
                 'volatility': round(vol, 4)
             })
-    print(f"Generated {filename}")
+    logger.info(f"Generated {filename}")
     return filename
 
-
 if __name__ == "__main__":
-    # Generate last 24 hours of data for demo
+    # Generate last 24 hours of data for demonstration
     now = datetime.utcnow().replace(minute=0, second=0, microsecond=0)
     for i in range(24):
         dt = now - timedelta(hours=i)

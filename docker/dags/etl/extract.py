@@ -5,7 +5,7 @@ import pandas as pd
 from io import BytesIO
 from dotenv import load_dotenv
 
-from etl.logger_config import logger  # use configured logger
+from etl.logger_config import logger  
 
 load_dotenv()
 

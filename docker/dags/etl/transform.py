@@ -3,6 +3,7 @@ import numpy as np
 from etl.logger_config import logger
 
 def validate_data(df: pd.DataFrame) -> bool:
+    """Validate that the DataFrame contains all required columns."""
     required_columns = ['timestamp', 'symbol', 'open', 'high', 'low', 'close', 'volume', 'market_cap', 'volatility']
     missing_cols = set(required_columns) - set(df.columns)
     if missing_cols:
@@ -11,6 +12,7 @@ def validate_data(df: pd.DataFrame) -> bool:
     return True
 
 def add_derived_metrics(df: pd.DataFrame) -> pd.DataFrame:
+    """Add derived metrics such as price change %, rolling volatility, and moving average."""
     logger.info("Adding derived metrics...")
     df = df.copy()
     # Convert timestamp to pandas datetime if not already
@@ -18,12 +20,25 @@ def add_derived_metrics(df: pd.DataFrame) -> pd.DataFrame:
     # Calculate price change %
     df['price_change_pct'] = df['close'].pct_change().fillna(0)
     # Calculate rolling 3-period volatility on closing price
-    df['rolling_volatility'] = df.groupby('symbol')['close'].rolling(window=3).std().reset_index(0, drop=True).fillna(0)
+    df['rolling_volatility'] = (
+        df.groupby('symbol')['close']
+        .rolling(window=3)
+        .std()
+        .reset_index(0, drop=True)
+        .fillna(0)
+    )
     # Moving average (3 periods)
-    df['moving_avg'] = df.groupby('symbol')['close'].rolling(window=3).mean().reset_index(0, drop=True).fillna(df['close'])
+    df['moving_avg'] = (
+        df.groupby('symbol')['close']
+        .rolling(window=3)
+        .mean()
+        .reset_index(0, drop=True)
+        .fillna(df['close'])
+    )
     return df
 
 def transform_data(df: pd.DataFrame) -> pd.DataFrame:
+    """Validate, clean, and transform the dataset by adding derived metrics."""
     logger.info("Starting data transformation...")
     if not validate_data(df):
         raise ValueError("Data validation failed, missing columns!")
@@ -46,5 +61,4 @@ if __name__ == "__main__":
         'volatility': [0.02, 0.015, 0.02]
     })
     result = transform_data(example_df)
-    print(result)
-    # print(result.columns)
+    logger.info(f"Transformed DataFrame:\n{result}")
