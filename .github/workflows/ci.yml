@@ -57,6 +57,22 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+
+    - name: Create dummy .env file
+      run: |
+        # Create minimal .env file for validation
+        mkdir -p docker
+        cat > docker/.env << 'EOF'
+        # CI dummy environment variables
+        POSTGRES_DB=test_db
+        POSTGRES_USER=test_user
+        POSTGRES_PASSWORD=test_pass
+        MINIO_ROOT_USER=minioadmin
+        MINIO_ROOT_PASSWORD=minioadmin123
+        REDIS_PASSWORD=test_redis_pass
+        AIRFLOW_UID=1000
+        AIRFLOW_GID=0
+        EOF
     
     - name: Validate Docker Compose
       run: |
