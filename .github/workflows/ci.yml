@@ -80,7 +80,7 @@ jobs:
     
     - name: Build Docker images (no cache for validation)
       run: |
-        docker-compose -f docker-compose.yml build --no-cache
+        docker compose -f docker/docker-compose.yml build --no-cache
 
 # name: Continuous Integration
 
