@@ -39,25 +39,25 @@ jobs:
     - name: Lint with flake8
       run: |
         # Stop build if there are Python syntax errors or undefined names
-        flake8 etl/ dags/ scripts/ --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 docker/dags/etl/ docker/dags/ docker/dags/scripts/ --count --select=E9,F63,F7,F82 --show-source --statistics
         # Exit-zero treats all errors as warnings
-        flake8 etl/ dags/ scripts/ --count --exit-zero --max-complexity=10 --max-line-length=88 --statistics
+        flake8 docker/dags/etl/ docker/dags/ docker/dags/scripts/ --count --exit-zero --max-complexity=10 --max-line-length=88 --statistics
     
     - name: Check code formatting with black
       run: |
-        black --check etl/ dags/ scripts/
+        black --check docker/dags/etl/ docker/dags/ docker/dags/scripts/
     
     - name: Check import sorting with isort
       run: |
-        isort --check-only etl/ dags/ scripts/
+        isort --check-only docker/dags/etl/ docker/dags/ docker/dags/scripts/
     
     - name: Type checking with mypy
       run: |
-        mypy etl/ --ignore-missing-imports
+        mypy docker/dags/etl/ --ignore-missing-imports
     
     - name: Security check with bandit
       run: |
-        bandit -r etl/ scripts/ -f json -o bandit-report.json
+        bandit -r docker/dags/etl/ docker/dags/scripts/ -f json -o bandit-report.json
     
     - name: Upload bandit results
       uses: actions/upload-artifact@v4
