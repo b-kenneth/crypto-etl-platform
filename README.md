@@ -1,8 +1,47 @@
+# **CRYPTO DATA PLATFORM**
+***
+# Table of Contents
+- [Section 1: Project Overview & Architecture](#section-1-project-overview--architecture)
+    - [Project Overview](#project-overview)
+    - [Core Features](#core-features)
+    - [Architecture Overview](#architecture-overview)
+    - [Tech Stack](#tech-stack)
+
+- [Section 2: Getting Started](#section-2-getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Environment Setup](#environment-setup)
+    - [Installation & Configuration](#installation--configuration)
+    - [Quick Start Guide](#quick-start-guide)
+    - [Development Setup](#development-setup)
+
+- [Section 3: Data Pipeline & ETL](#section-3-data-pipeline--etl)
+    - [Data Flow Description](#data-flow-description)
+    - [Pipeline Architecture](#pipeline-architecture)
+    - [Data Quality & Validation Framework](#data-quality--validation-framework)
+    - [Pipeline Monitoring & Observability](#pipeline-monitoring--observability)
+    - [Performance Optimization](#performance-optimization)
+
+- [Section 4: System Operations](#section-4-system-operations)
+    - [Usage Guide](#usage-guide)
+    - [Dashboard & Visualization](#dashboard--visualization)
+    - [Monitoring & Logging](#monitoring--logging)
+    - [Troubleshooting Guide](#troubleshooting-guide)
+
+- [Section 5: Development & Quality](#section-5-development--quality)
+    - [Complete Project Structure](#complete-project-structure)
+    - [Modular Codebase Design](#modular-codebase-design)
+    - [Design Principles Implementation](#design-principles-implementation)
+    - [Testing Strategy](#testing-strategy)
+    - [Contributing Guidelines](#contributing-guidelines)
+    - [Development Workflow](#development-workflow)
+    - [Security & Best Practices](#security--best-practices)
+****
+
+
+
 # **Section 1: Project Overview & Architecture**
 
-## **🚀 Crypto Data Platform**
-
-## **📊 Project Overview**
+## **Project Overview**
 
 The Crypto Data Platform is a comprehensive end-to-end data engineering solution designed to solve critical challenges in cryptocurrency market analysis. This platform addresses the need for reliable, crypto market intelligence by implementing a robust ETL pipeline that ensures data quality, consistency, and availability for business intelligence applications.
 
@@ -22,31 +61,31 @@ The Crypto Data Platform is a comprehensive end-to-end data engineering solution
 
 ***
 
-## **✨ Core Features**
+## **Core Features**
 
 ### **Data Pipeline Features**
-- ✅ **Idempotent Processing** - Prevents duplicate data processing with state tracking
-- ✅ **Comprehensive Data Quality Validation** - Multi-layer validation (structure, business rules, consistency)
-- ✅ **Graceful Error Handling** - Partial batch success with detailed failure reporting
-- ✅ **Automatic Retry Logic** - Exponential backoff for transient failures
-- ✅ **File Processing State Management** - Tracks processed files to prevent reprocessing
+- **Idempotent Processing** - Prevents duplicate data processing with state tracking
+- **Comprehensive Data Quality Validation** - Multi-layer validation (structure, business rules, consistency)
+- **Graceful Error Handling** - Partial batch success with detailed failure reporting
+- **Automatic Retry Logic** - Exponential backoff for transient failures
+- **File Processing State Management** - Tracks processed files to prevent reprocessing
 
 ### **Orchestration & Monitoring**
-- ✅ **Apache Airflow Integration** - Workflow orchestration with branching logic
-- ✅ **Structured Logging** - Centralized logs with configurable levels and trace IDs
-- ✅ **Real-time Monitoring** - Pipeline health metrics and execution summaries
-- ✅ **Configurable Scheduling** - Hourly data generation, 15-minute ETL processing
-- ✅ **Resource Management** - Container-based deployment with defined resource limits
+- **Apache Airflow Integration** - Workflow orchestration with branching logic
+- **Structured Logging** - Centralized logs with configurable levels and trace IDs
+- **Real-time Monitoring** - Pipeline health metrics and execution summaries
+- **Configurable Scheduling** - Hourly data generation, 15-minute ETL processing
+- **Resource Management** - Container-based deployment with defined resource limits
 
 ### **Storage & Analytics**
-- ✅ **Object Storage (MinIO S3-compatible)** - Organized data lake with hierarchical structure
-- ✅ **Analytical Database (PostgreSQL)** - Optimized for OLAP queries and aggregations
-- ✅ **Interactive Dashboards (Metabase)** - Self-service analytics and visualization
-- ✅ **Data Lineage Tracking** - Maintains processing history and audit trails
+- **Object Storage (MinIO S3-compatible)** - Organized data lake with hierarchical structure
+- **Analytical Database (PostgreSQL)** - Optimized for OLAP queries and aggregations
+- **Interactive Dashboards (Metabase)** - Self-service analytics and visualization
+- **Data Lineage Tracking** - Maintains processing history and audit trails
 
 ***
 
-## **🏗️ Architecture Overview**
+## **Architecture Overview**
 ![archiecture_diagram](assets/min.drawio.png)
 
 ### **Data Flow Architecture**
@@ -58,7 +97,7 @@ The Crypto Data Platform is a comprehensive end-to-end data engineering solution
 
 ***
 
-## **🛠️ Tech Stack**
+## **Tech Stack**
 
 ### **Backend & Data Processing**
 - **Python 3.8+** - Core programming language
@@ -85,7 +124,7 @@ The Crypto Data Platform is a comprehensive end-to-end data engineering solution
 
 # **Section 2: Getting Started**
 
-## **📋 Prerequisites**
+## **Prerequisites**
 
 ### **Software Dependencies**
 - **Docker** (version 20.10+) and **Docker Compose** (version 2.0+)
@@ -94,7 +133,7 @@ The Crypto Data Platform is a comprehensive end-to-end data engineering solution
 - **psql** client (optional, for direct database access)
 
 
-## **⚡ Environment Setup**
+## **Environment Setup**
 
 ### **1. Repository Clone & Navigation**
 ```bash
@@ -131,7 +170,7 @@ ENVIRONMENT=production
 
 ***
 
-## **🚀 Installation & Configuration**
+## **Installation & Configuration**
 
 ### **1. Docker Services Initialization**
 ```bash
@@ -196,7 +235,7 @@ CREATE INDEX IF NOT EXISTS idx_processed_files_status ON processed_files(status)
 
 ***
 
-## **🎯 Quick Start Guide**
+## **Quick Start Guide**
 
 ### **1. Service Health Verification**
 ```bash
@@ -258,7 +297,7 @@ GROUP BY status;
 
 ***
 
-## **🔧 Development Setup**
+## **Development Setup**
 
 ### **Local Development Environment**
 ```bash
@@ -276,7 +315,7 @@ python -m pytest tests/ -v
 
 # **Section 3: Data Pipeline & ETL**
 
-## **🔄 Data Flow Description**
+## **Data Flow Description**
 
 The Crypto Data Platform implements a sophisticated event-driven architecture that ensures reliable, scalable, and maintainable cryptocurrency data processing. The data flows through multiple layers with comprehensive validation, error handling, and monitoring at each stage.
 
@@ -291,7 +330,7 @@ Data Generation → Object Storage → Quality Validation → Transformation →
 
 ***
 
-## **🏗️ Pipeline Architecture**
+## **Pipeline Architecture**
 
 ### **1. Data Generation Layer**
 **Purpose**: Automated cryptocurrency market data simulation  
@@ -361,7 +400,7 @@ raw-data/
 
 ---
 
-## **📊 Data Quality & Validation Framework**
+## **Data Quality & Validation Framework**
 
 ### **Multi-Layer Validation Strategy**
 
@@ -432,7 +471,7 @@ for file_info in processed_data:
 
 ***
 
-## **🔍 Pipeline Monitoring & Observability**
+## **Pipeline Monitoring & Observability**
 
 ### **Processing Metrics Tracked**
 ```sql
@@ -468,7 +507,7 @@ GROUP BY symbol;
 
 ***
 
-## **⚡ Performance Optimization**
+## **Performance Optimization**
 
 ### **Processing Efficiency**
 - **Parallel File Processing**: Multiple files processed concurrently where possible
@@ -485,7 +524,7 @@ GROUP BY symbol;
 
 # **Section 4: System Operations**
 
-## **🎯 Usage Guide**
+## **Usage Guide**
 
 ### **Daily Operations Workflow**
 
@@ -538,7 +577,7 @@ The Crypto Data Platform is designed for autonomous operation with minimal manua
 ![minio](assets/Screenshot%202025-09-18%20220809.png)
 ***
 
-## **📊 Dashboard & Visualization**
+## **Dashboard & Visualization**
 
 ### **Analytics Dashboards**
 
@@ -634,7 +673,7 @@ ORDER BY MAX(timestamp) DESC;
 ```
 
 
-## **📈 Monitoring & Logging**
+## **Monitoring & Logging**
 
 ### **System Health Monitoring**
 
@@ -726,7 +765,7 @@ docker-compose exec airflow-webserver grep -i "error\|failed" /opt/airflow/logs/
 
 ***
 
-## **🔧 Troubleshooting Guide**
+## **Troubleshooting Guide**
 
 ### **Common Issues & Solutions**
 
@@ -827,70 +866,119 @@ WHERE timestamp >= NOW() - INTERVAL '24 hours'
 GROUP BY symbol;
 ```
 
-#### **Pipeline Optimization**
-```python
-# Optimize ETL processing
-# 1. Increase batch size for bulk operations
-# 2. Use connection pooling
-# 3. Implement parallel file processing
-# 4. Add data compression for storage efficiency
-```
 
 # **Section 5: Development & Quality**
 
-## **🏗️ Code Structure & Architecture**
+## **Complete Project Structure**
+
+***
+
+```
+crypto-data-platform/
+├── README.md                           # Comprehensive technical documentation
+├── requirements.txt                     # Production dependencies
+├── requirements-dev.txt                 # Development & testing dependencies  
+├── .gitignore                          # Version control exclusions
+├── pytest.ini                          # Testing framework configuration
+├── .pre-commit-config.yaml             # Code quality hooks
+├── .github/workflows/
+│   └── ci.yml                             # Automated CI/CD pipeline
+└── assets/
+    ├── min.drawio.png                     # System architecture diagram
+    └── Screenshot_*.png                   # Dashboard & system screenshots
+```
+
+***
+
+## **Core ETL Pipeline Components**
+
+### **Airflow Orchestration** (`docker/dags/`)
+
+```
+docker/dags/
+├── crypto_data_generator_dag.py           # Automated hourly data generation
+├── crypto_etl_dag.py                     # Robust main ETL pipeline
+└── etl/                                  # Core processing modules
+    ├── __init__.py                       # Package initialization
+    ├── extract.py                        # MinIO S3-compatible data extraction
+    ├── transform.py                      # Business logic & data enrichment
+    ├── load.py                          # PostgreSQL analytical database loading
+    ├── data_quality.py                 # Multi-layer validation framework
+    ├── file_processor.py               # Idempotent file state management
+    ├── pipeline.py                     # End-to-end workflow coordination
+    └── logger_config.py                # Centralized structured logging
+```
+
+### **Data Generation & Utilities** (`docker/dags/scripts/`)
+
+```
+scripts/
+├── generate_data.py                      # Realistic cryptocurrency market simulation
+├── upload_to_minio.py                   # Object storage upload utilities
+└── data/                                # Sample dataset (development only)
+    ├── crypto_data_20250917_12.csv      # Hourly OHLCV market data
+    ├── crypto_data_20250917_13.csv      # Structured time-series format
+    └── ... (additional hourly files)     # Historical data samples
+```
+
+***
+
+## **Infrastructure & Service Orchestration**
+
+### **Docker Container Architecture** (`docker/`)
+
+```
+docker/
+├── docker-compose.yml                    # Multi-service orchestration
+├── config/                             # Service-specific configurations
+├── dags/                               # Dags and utils scripts
+├── plugins/
+└── logs/                               # Centralized application logging
+```
+
+***
+
+## **Data & Analytics Infrastructure**
+
+### **Database Schemas** (`sql/`)
+
+```
+sql/
+├── create_processed_files_table.sql      # File processing state tracking
+├── create_processed_prices.sql           # Analytics-ready price data schema
+```
+
+
+***
+
+## **Quality Assurance & Testing**
+
+### **Comprehensive Testing Framework** (`tests/`)
+
+```
+tests/
+├── unit/                                # Component-level testing
+│   ├── test_extract.py                  # Data extraction validation
+│   ├── test_transform.py               # Business logic verification
+│   ├── test_data_quality.py            # Quality framework testing
+│ 
+├── integration/                         # Cross-component testing
+│   ├── test_etl_pipeline.py            # End-to-end workflow validation
+```
+
+### **CI/CD & Automation** (`.github/workflows/`)
+
+```
+.github/workflows/
+├── ci.yml                               # Continuous integration pipeline
+├── cd.yml                               # Continuous deployment automation
+```
 
 ### **Modular Codebase Design**
 
 The Crypto Data Platform follows enterprise-grade software engineering principles with a clear separation of concerns and modular architecture that promotes maintainability, testability, and scalability.
 
 #### **Project Directory Structure**
-```
-crypto-data-platform/
-├── dags/                           # Airflow DAG definitions
-│   ├── crypto_data_generator_dag.py
-│   ├── crypto_etl_dag.py
-│   └── dag_utils/
-├── etl/                           # Core ETL modules
-│   ├── __init__.py
-│   ├── extract.py                 # Data extraction logic
-│   ├── transform.py               # Data transformation logic
-│   ├── load.py                    # Data loading logic
-│   ├── data_quality.py            # Quality validation framework
-│   ├── file_processor.py          # File state management
-│   └── logger_config.py           # Centralized logging
-├── scripts/                       # Utility and setup scripts
-│   ├── generate_data.py           # Data generation utilities
-│   ├── validate_env.py            # Environment validation
-│   └── setup_database.py         # Database initialization
-├── utils/                         # Helper utilities
-│   ├── backfill_data.py          # Historical data backfill
-│   ├── data_validation.py        # Data quality utilities
-│   └── monitoring.py             # System monitoring tools
-├── sql/                          # Database schemas and queries
-│   ├── create_tables.sql         # Table definitions
-│   ├── indexes.sql               # Performance indexes
-│   └── migrations/               # Schema migrations
-├── tests/                        # Comprehensive test suite
-│   ├── unit/                     # Unit tests
-│   ├── integration/              # Integration tests
-│   ├── e2e/                      # End-to-end tests
-│   └── fixtures/                 # Test data fixtures
-├── docker/                       # Docker configuration
-│   ├── docker-compose.yml        # Service definitions
-│   ├── airflow/                  # Airflow container setup
-│   └── postgres/                 # PostgreSQL container setup
-├── docs/                         # Documentation
-│   ├── architecture.md           # System architecture
-│   ├── api_reference.md          # API documentation
-│   └── deployment.md             # Deployment guides
-├── .github/workflows/            # CI/CD pipeline definitions
-├── requirements.txt              # Production dependencies
-├── requirements-dev.txt          # Development dependencies
-├── .env.template                 # Environment configuration template
-└── README.md                     # Project documentation
-```
-
 ### **Design Principles Implementation**
 
 #### **1. Single Responsibility Principle**
@@ -913,302 +1001,18 @@ def add_derived_metrics(df: pd.DataFrame) -> pd.DataFrame:
     """Calculate derived business metrics"""
 ```
 
-#### **2. Dependency Injection & Configuration Management**
-```python
-# Environment-driven configuration
-class Config:
-    def __init__(self):
-        self.minio_endpoint = os.getenv("MINIO_ENDPOINT")
-        self.postgres_conn = os.getenv("POSTGRES_CONN")
-        self.log_level = os.getenv("LOG_LEVEL", "INFO")
-    
-    def validate(self):
-        """Validate all required configuration"""
-        required_vars = ["MINIO_ENDPOINT", "POSTGRES_CONN"]
-        missing = [var for var in required_vars if not getattr(self, var.lower())]
-        if missing:
-            raise ValueError(f"Missing required environment variables: {missing}")
-```
-
-#### **3. Error Handling & Resilience Patterns**
-```python
-# Retry with exponential backoff
-from functools import wraps
-import time
-
-def retry_with_backoff(max_retries=3, backoff_factor=2):
-    def decorator(func):
-        @wraps(func)
-        def wrapper(*args, **kwargs):
-            for attempt in range(max_retries):
-                try:
-                    return func(*args, **kwargs)
-                except Exception as e:
-                    if attempt == max_retries - 1:
-                        raise e
-                    wait_time = backoff_factor ** attempt
-                    logger.warning(f"Attempt {attempt + 1} failed: {e}. Retrying in {wait_time}s")
-                    time.sleep(wait_time)
-        return wrapper
-    return decorator
-
-# Circuit breaker pattern for fault tolerance
-class CircuitBreaker:
-    def __init__(self, failure_threshold=5, recovery_timeout=60):
-        self.failure_threshold = failure_threshold
-        self.recovery_timeout = recovery_timeout
-        self.failure_count = 0
-        self.last_failure_time = None
-        self.state = "CLOSED"  # CLOSED, OPEN, HALF_OPEN
-```
-
 ***
 
-## **🧪 Testing Strategy**
+## **Testing Strategy**
 
 ### **Comprehensive Testing Framework**
+The current CI/CD pipeline includes:
+- Code quality checks (linting, type checking, security scanning)
+- Docker Compose configuration validation
 
-The platform implements a multi-layered testing strategy ensuring reliability across all components and integration points.
+Unit tests have been written but are not yet integrated into the pipeline and will be implemented in subsequent iterations.
 
-#### **Unit Tests (95%+ Coverage Target)**
-```python
-# tests/unit/test_transform.py
-import pytest
-import pandas as pd
-from etl.transform import validate_data, add_derived_metrics
-
-class TestTransform:
-    def test_validate_data_success(self):
-        """Test successful data validation"""
-        df = pd.DataFrame({
-            'timestamp': ['2025-09-21T10:00:00'],
-            'symbol': ['BTC'],
-            'open': [30000],
-            'high': [30500],
-            'low': [29900],
-            'close': [30400],
-            'volume': [1000]
-        })
-        assert validate_data(df) == True
-    
-    def test_validate_data_missing_columns(self):
-        """Test validation failure with missing columns"""
-        df = pd.DataFrame({'timestamp': ['2025-09-21T10:00:00']})
-        assert validate_data(df) == False
-    
-    def test_add_derived_metrics(self):
-        """Test derived metrics calculation"""
-        df = pd.DataFrame({
-            'timestamp': ['2025-09-21T10:00:00', '2025-09-21T11:00:00'],
-            'symbol': ['BTC', 'BTC'],
-            'close': [30000, 30300]
-        })
-        result = add_derived_metrics(df)
-        
-        assert 'price_change_pct' in result.columns
-        assert 'moving_avg' in result.columns
-        assert result.iloc[1]['price_change_pct'] == pytest.approx(0.01, rel=1e-3)
-```
-
-#### **Integration Tests**
-```python
-# tests/integration/test_etl_pipeline.py
-import pytest
-from unittest.mock import Mock, patch
-from etl.pipeline import run_etl_pipeline
-
-class TestETLIntegration:
-    @patch('etl.extract.MinioExtractor')
-    @patch('etl.load.upsert_prices')
-    def test_end_to_end_pipeline(self, mock_upsert, mock_extractor):
-        """Test complete ETL pipeline flow"""
-        # Setup mock data
-        mock_extractor.return_value.list_files.return_value = ['test_file.csv']
-        mock_extractor.return_value.read_csv.return_value = self.sample_dataframe()
-        
-        # Execute pipeline
-        result = run_etl_pipeline()
-        
-        # Verify expectations
-        assert mock_extractor.return_value.list_files.called
-        assert mock_upsert.called
-        assert result['status'] == 'success'
-```
-
-#### **End-to-End Tests**
-```python
-# tests/e2e/test_full_workflow.py
-import pytest
-from tests.fixtures.docker_services import ensure_services_running
-
-class TestE2EWorkflow:
-    @pytest.fixture(autouse=True)
-    def setup_environment(self):
-        """Ensure all Docker services are running"""
-        ensure_services_running(['postgres-analytics', 'minio', 'airflow-webserver'])
-    
-    def test_data_generation_to_dashboard(self):
-        """Test complete flow from data generation to dashboard"""
-        # 1. Generate test data
-        # 2. Trigger ETL pipeline
-        # 3. Verify data in PostgreSQL
-        # 4. Verify dashboard accessibility
-        pass
-```
-
-### **Test Automation & CI Integration**
-```yaml
-# .github/workflows/test.yml
-name: Test Suite
-on: [push, pull_request]
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:13
-        env:
-          POSTGRES_PASSWORD: test
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-    
-    steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.8'
-    
-    - name: Install dependencies
-      run: |
-        pip install -r requirements-dev.txt
-    
-    - name: Run unit tests
-      run: |
-        pytest tests/unit/ -v --cov=etl --cov-report=xml
-    
-    - name: Run integration tests
-      run: |
-        pytest tests/integration/ -v
-    
-    - name: Upload coverage reports
-      uses: codecov/codecov-action@v3
-```
-
-***
-
-## **📏 Code Quality & Standards**
-
-### **Code Quality Tools Integration**
-
-#### **Linting & Formatting**
-```ini
-# .flake8
-[flake8]
-max-line-length = 88
-extend-ignore = E203, W503
-exclude = 
-    .git,
-    __pycache__,
-    .venv,
-    migrations
-
-# pyproject.toml
-[tool.black]
-line-length = 88
-target-version = ['py38']
-include = '\.pyi?$'
-
-[tool.isort]
-profile = "black"
-multi_line_output = 3
-line_length = 88
-```
-
-#### **Static Analysis with SonarQube (Future Implementation)**
-```yaml
-# sonar-project.properties
-sonar.projectKey=crypto-data-platform
-sonar.organization=your-org
-sonar.sources=etl,dags,scripts
-sonar.tests=tests
-sonar.python.coverage.reportPaths=coverage.xml
-sonar.python.xunit.reportPath=test-results.xml
-
-# Quality gates
-sonar.qualitygate.wait=true
-sonar.coverage.exclusions=tests/**,**/__init__.py
-```
-
-#### **Pre-commit Hooks**
-```yaml
-# .pre-commit-config.yaml
-repos:
-  - repo: https://github.com/psf/black
-    rev: 22.10.0
-    hooks:
-      - id: black
-        language_version: python3.8
-  
-  - repo: https://github.com/pycqa/isort
-    rev: 5.10.1
-    hooks:
-      - id: isort
-  
-  - repo: https://github.com/pycqa/flake8
-    rev: 5.0.4
-    hooks:
-      - id: flake8
-  
-  - repo: local
-    hooks:
-      - id: pytest-unit
-        name: pytest-unit
-        entry: pytest tests/unit/
-        language: system
-        pass_filenames: false
-```
-
-### **Documentation Standards**
-
-#### **API Documentation**
-```python
-def transform_data(df: pd.DataFrame) -> pd.DataFrame:
-    """Transform raw cryptocurrency data with business logic.
-    
-    Args:
-        df (pd.DataFrame): Raw OHLCV data with columns:
-            - timestamp: ISO format datetime string
-            - symbol: Cryptocurrency symbol (e.g., 'BTC', 'ETH')
-            - open, high, low, close: Price values (float)
-            - volume: Trading volume (float)
-            - market_cap: Market capitalization (float)
-            - volatility: Price volatility (float)
-    
-    Returns:
-        pd.DataFrame: Transformed data with additional columns:
-            - price_change_pct: Percentage price change
-            - rolling_volatility: 3-period rolling volatility
-            - moving_avg: 3-period moving average
-    
-    Raises:
-        ValueError: If data validation fails
-        TypeError: If input is not a pandas DataFrame
-    
-    Example:
-        >>> raw_data = pd.read_csv('crypto_data.csv')
-        >>> transformed = transform_data(raw_data)
-        >>> assert 'price_change_pct' in transformed.columns
-    """
-```
-
-***
-
-## **🤝 Contributing Guidelines**
+## **Contributing Guidelines**
 
 ### **Development Workflow**
 
@@ -1274,8 +1078,6 @@ pip install -r requirements-dev.txt
 pre-commit install
 
 # Run quality checks before committing
-black etl/ dags/ scripts/
-isort etl/ dags/ scripts/
 flake8 etl/ dags/ scripts/
 pytest tests/unit/ -v
 
