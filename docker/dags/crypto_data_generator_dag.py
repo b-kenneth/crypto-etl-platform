@@ -6,10 +6,10 @@ import os
 from minio import Minio
 from dotenv import load_dotenv
 
+load_dotenv()
 import sys
 sys.path.append('/opt/airflow')
 
-# load_dotenv('/opt/airflow/.env')
     
 from scripts.generate_data import generate_csv_for_hour
 
@@ -35,9 +35,9 @@ dag = DAG(
 def upload_to_organized_path(local_file_path: str, minio_object_path: str):
     """Upload file to MinIO with organized folder structure"""
     client = Minio(
-        os.getenv("MINIO_ENDPOIN", "minio:9000"),
-        access_key=os.getenv("MINIO_ACCESS_KE", "minio-access"),
-        secret_key=os.getenv("MINIO_SECRET_KE", "minio-secret"),
+        os.getenv("MINIO_ENDPOINT"),
+        access_key=os.getenv("MINIO_ACCESS_KEY"),
+        secret_key=os.getenv("MINIO_SECRET_KEY"),
         secure=False,
     )
     

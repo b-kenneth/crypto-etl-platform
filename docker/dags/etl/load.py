@@ -12,10 +12,17 @@ load_dotenv()
 DB_CONN = os.getenv("POSTGRES_CONN")
 
 def get_connection():
+    """Establish and return a PostgreSQL database connection using environment variables."""
     conn = psycopg2.connect(DB_CONN)
     return conn
 
 def upsert_prices(df: pd.DataFrame):
+    """
+    Upsert price data into the processed_prices table.
+
+    - Inserts new rows if (timestamp, symbol) does not exist.
+    - Updates existing rows if a conflict on (timestamp, symbol) occurs.
+    """
     if df.empty:
         logger.info("No data to upsert")
         return
@@ -51,7 +58,6 @@ def upsert_prices(df: pd.DataFrame):
 
 if __name__ == "__main__":
     # Example usage with dummy data
-    import pandas as pd
     data = {
         "timestamp": ["2025-09-18T12:00:00"], "symbol": ["BTC"],
         "open": [30000], "high": [30500], "low": [29900], "close": [30400],
