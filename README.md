@@ -575,6 +575,10 @@ The Crypto Data Platform is designed for autonomous operation with minimal manua
 5. View access logs
 ```
 ![minio](assets/Screenshot%202025-09-18%20220809.png)
+
+
+**Postgres Database (Analytics Storage)**
+![postgres](assets/Screenshot%202025-09-18%20221018.png)
 ***
 
 ## **Dashboard & Visualization**
