@@ -6,7 +6,7 @@ from airflow.utils.trigger_rule import TriggerRule
 import sys
 import os
 
-from etl.logger_config import logger  # Assuming logger is defined in logger_config
+from etl.logger_config import logger 
 
 # Add project root to Python path
 sys.path.append('/opt/airflow')
