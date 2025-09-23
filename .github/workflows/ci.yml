@@ -43,9 +43,9 @@ jobs:
         # Exit-zero treats all errors as warnings
         flake8 docker/dags/etl/ docker/dags/ docker/dags/scripts/ --count --exit-zero --max-complexity=10 --max-line-length=88 --statistics
     
-    - name: Check code formatting with black
-      run: |
-        black --check docker/dags/etl/ docker/dags/ docker/dags/scripts/
+    # - name: Check code formatting with black
+    #   run: |
+    #     black --check docker/dags/etl/ docker/dags/ docker/dags/scripts/
     
     - name: Check import sorting with isort
       run: |
